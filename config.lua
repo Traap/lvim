@@ -4,18 +4,23 @@
 -- a path to an executable.
 --
 -- ------------------------------------------------------------------------- }}}
--- {{{ general
+-- {{{ General
 
-lvim.log.level = "warn"
-lvim.format_on_save = true
 lvim.colorscheme = "onedarker"
+lvim.format_on_save = true
 lvim.leader = "space"
+lvim.line_wrap_cursor_movement = false
+lvim.log.level = "warn"
+lvim.transparent_window = true
 
 -- ------------------------------------------------------------------------- }}}
--- {{{ unmap a default keymapping
+-- {{{ Unmap a default lvim.keys.normal_mode['ping
 
--- vim.keymap.del("v", "<C-j>")
--- vim.keymap.del("v", "<C-k>")
+-- vim.keys.normal_mode.del("v", "<C-k>")
+-- vim.keys.normal_mode.del("v", "<C-j>")
+lvim.keys.normal_mode["<leader>gs"] = ""
+lvim.keys.normal_mode["<leader>gC"] = ""
+lvim.keys.normal_mode["<leader>gc"] = ""
 
 -- ------------------------------------------------------------------------- }}}
 -- {{{ Easy align
@@ -51,24 +56,28 @@ lvim.keys.normal_mode["vv"] = "^vg_"
 lvim.keys.normal_mode["vaa"] = "ggvGg_"
 lvim.keys.normal_mode["Vaa"] = "ggVG'"
 
--- Close all fold except the current one.
-lvim.keys.normal_mode["zv"] = "zMzvzz"
+-- Author: Karl Yngve Lervåg
+--    See: https://github.com/lervag/dotnvim
+
+-- Close current fold when open. Always open next fold.
+lvim.keys.normal_mode['zj'] = 'zcjzOzz'
+
+-- Close current fold when open. Always open previous fold.
+lvim.keys.normal_mode['zk'] = 'zckzOzz'
+
 
 -- Close current fole when open. Always open next fold.
-lvim.keys.normal_mode["zj"] = "zMzvzz"
-lvim.keys.normal_mode["zk"] = "zcjzOzz"
-
 lvim.keys.normal_mode["<leader>cc"] = '"+y'
 lvim.keys.normal_mode["<leader>oo"] = '<cmd>only<cr>'
 
 -- ------------------------------------------------------------------------- }}}
--- {{{ fugitive
+-- {{{ Fugitivqas
 
+lvim.keys.normal_mode["<leader>gL"] = "<cmd>G log<cr>"
 lvim.keys.normal_mode["<leader>gP"] = "<cmd>G pull<cr>"
 lvim.keys.normal_mode["<leader>gc"] = "<cmd>G commit<cr>"
 lvim.keys.normal_mode["<leader>gd"] = "<cmd>G diff<cr>"
 lvim.keys.normal_mode["<leader>gh"] = "<cmd>vert bo help fugitive<cr>"
-lvim.keys.normal_mode["<leader>gl"] = "<cmd>G log<cr>"
 lvim.keys.normal_mode["<leader>gp"] = "<cmd>G push<cr>"
 lvim.keys.normal_mode["<leader>gs"] = "<cmd>G<cr>"
 lvim.keys.normal_mode["<leader>gu"] = "<cmd>call GenerateUmlDiagram()<cr>"
@@ -78,10 +87,15 @@ lvim.keys.normal_mode["<leader>gu"] = "<cmd>call GenerateUmlDiagram()<cr>"
 
 lvim.builtin.alpha.active = true
 lvim.builtin.alpha.mode = "dashboard"
+
+lvim.builtin.bufferline.active = false
+
 lvim.builtin.notify.active = true
-lvim.builtin.terminal.active = true
-lvim.builtin.nvimtree.setup.view.side = "right"
 lvim.builtin.nvimtree.setup.renderer.icons.show.git = true
+lvim.builtin.nvimtree.setup.view.side = "right"
+lvim.builtin.tabnine = { active = false }
+lvim.builtin.terminal.active = true
+
 
 -- ------------------------------------------------------------------------- }}}
 -- {{{ Treesitter
@@ -113,9 +127,10 @@ lvim.builtin.treesitter.ignore_install = { "haskell" }
 lvim.builtin.treesitter.highlight.enabled = true
 
 -- ------------------------------------------------------------------------- }}}
--- {{{ Additional Plugins
+-- {{{ Plugins
 
 lvim.plugins = {
+  { "lunarvim/colorschemes" },
   { "folke/tokyonight.nvim" },
   { "folke/trouble.nvim", cmd = "TroubleToggle", },
   { "hrsh7th/cmp-calc" },
@@ -152,6 +167,7 @@ lvim.plugins = {
 -- {{{ My options.
 
 vim.opt.background = "dark"
+vim.opt.cmdheight = 1
 vim.opt.cursorline = false
 vim.opt.expandtab = true
 vim.opt.fillchars = "fold: "
@@ -160,6 +176,7 @@ vim.opt.foldmethod = "marker"
 vim.opt.lazyredraw = true
 vim.opt.relativenumber = true
 vim.opt.showbreak = "↪"
+vim.opt.showtabline = 0
 vim.opt.textwidth = 80
 vim.opt.wrap = false
 
