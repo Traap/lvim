@@ -66,9 +66,15 @@ lvim.keys.normal_mode['zj'] = 'zcjzOzz'
 lvim.keys.normal_mode['zk'] = 'zckzOzz'
 
 
--- Close current fole when open. Always open next fold.
-lvim.keys.normal_mode["<leader>cc"] = '"+y'
+-- Copy & Paste
+lvim.keys.normal_mode["<leader>cc"] = 'ggVGg_"+y'
+lvim.keys.normal_mode["<leader>cv"] = '"+p'
+
+-- Show only this buffer.
 lvim.keys.normal_mode["<leader>oo"] = '<cmd>only<cr>'
+
+-- Clear highlights.
+lvim.keys.normal_mode["<leader> "] = '<cmd>nohlsearch<cr>'
 
 -- ------------------------------------------------------------------------- }}}
 -- {{{ Fugitivqas
@@ -95,7 +101,6 @@ lvim.builtin.nvimtree.setup.renderer.icons.show.git = true
 lvim.builtin.nvimtree.setup.view.side = "right"
 lvim.builtin.tabnine = { active = false }
 lvim.builtin.terminal.active = true
-
 
 -- ------------------------------------------------------------------------- }}}
 -- {{{ Treesitter
@@ -130,29 +135,51 @@ lvim.builtin.treesitter.highlight.enabled = true
 -- {{{ Plugins
 
 lvim.plugins = {
-  { "lunarvim/colorschemes" },
-  { "folke/tokyonight.nvim" },
-  { "folke/trouble.nvim", cmd = "TroubleToggle", },
-  { "hrsh7th/cmp-calc" },
-  { "hrsh7th/cmp-cmdline" },
-  { "f3fora/cmp-spell" },
-  { "junegunn/vim-easy-align" },
-  { "junegunn/fzf" },
-  { "junegunn/fzf.vim" },
-  { "tweekmonster/startuptime.vim" },
   { "aklt/plantuml-syntax" },
-  { "kovetskiy/sxhkd-vim" },
-  { "tpope/vim-commentary" },
-  { "tpope/vim-fugitive" },
-  { "tpope/vim-rails" },
+
   { "christoomey/vim-tmux-navigator" },
   { "christoomey/vim-tmux-runner" },
-  { "triglav/vim-visual-increment" },
-  { "vim-utils/vim-most-minimal-folds" },
-  { "lervag/vimtex" },
-  { "lervag/wiki.vim" },
-  { "lervag/wiki-ft.vim" },
+
   { "dkarter/bullets.vim" },
+
+  { "f3fora/cmp-spell" },
+  { "folke/trouble.nvim", cmd = "TroubleToggle", },
+
+  { "hrsh7th/cmp-calc" },
+  { "hrsh7th/cmp-cmdline" },
+
+  { "junegunn/fzf" },
+  { "junegunn/fzf.vim" },
+  { "junegunn/vim-easy-align" },
+
+  { "kovetskiy/sxhkd-vim" },
+  { "kylechui/nvim-surround" },
+
+  { "lervag/vimtex" },
+  { "lervag/wiki-ft.vim" },
+  { "lervag/wiki.vim" },
+  { "lunarvim/colorschemes" },
+
+  { "mechatroner/rainbow_csv" },
+
+  { "tpope/vim-characterize" },
+  { "tpope/vim-commentary" },
+  { "tpope/vim-dispatch" },
+  { "tpope/vim-endwise" },
+  { "tpope/vim-fugitive" },
+  { "tpope/vim-rails" },
+  { "tpope/vim-repeat" },
+  { "tpope/vim-unimpaired" },
+
+  { "triglav/vim-visual-increment" },
+  { "tweekmonster/startuptime.vim" },
+
+  { "vim-utils/vim-most-minimal-folds" },
+
+  { "xiyaowong/nvim-transparent" },
+
+  { "RRethy/nvim-base16" },
+
   { "Traap/vim-bundle-abbreviate" },
   { "Traap/vim-bundle-autocmd" },
   { "Traap/vim-bundle-fzf" },
@@ -190,5 +217,61 @@ vim.g.bullets_enabled_file_types = {
   "text",
   "wiki"
 }
+
+-- ------------------------------------------------------------------------- }}}
+-- {{{ zymurgy : The last word in 1980 Webster's new collegiate dictionary.
+
+-- Plugins listed in this file require minimal setup.
+
+local o0, lightbulb = pcall(require, 'nvim-lightbulb')
+if o0 then
+  lightbulb.setup({ autocmd = { enabled = true } })
+end
+
+local o1, trouble = pcall(require, 'trouble')
+if o1 then
+  trouble.setup({})
+end
+
+local o2, gitsigns = pcall(require, 'gitsigns')
+if o2 then
+  gitsigns.setup()
+end
+
+local o3, surround = pcall(require, 'nvim-surround')
+if o3 then
+  surround.setup()
+end
+
+-- local o4, notify = pcall(require, 'notify')
+-- if o4 then
+--   notify.setup({
+--     background_colour = "#000000",
+--   })
+-- end
+
+local o5, _ = pcall(require, 'base16-colorscheme')
+if o5 then
+  vim.cmd('colorscheme base16-tokyo-night-terminal-storm')
+end
+
+local o6, transparent = pcall(require, 'transparent')
+if o6 then
+  transparent.setup({
+    enable = true,
+    extra_gropus = {
+      'Comment',
+      'Folded',
+      'Normal',
+    },
+    exclude = {
+      'EndOfBuffer',
+      'NonText',
+    }
+  })
+end
+
+vim.g.transparent_enable = true
+vim.api.nvim_create_autocmd('ColorScheme', { command = 'highlight clear Folded' })
 
 -- ------------------------------------------------------------------------- }}}
