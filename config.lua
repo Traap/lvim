@@ -14,10 +14,10 @@ lvim.log.level = "warn"
 lvim.transparent_window = true
 
 -- ------------------------------------------------------------------------- }}}
--- {{{ Unmap a default lvim.keys.normal_mode['ping
+-- {{{ Unmap default default LunarVim keys.
 
--- vim.keys.normal_mode.del("v", "<C-k>")
--- vim.keys.normal_mode.del("v", "<C-j>")
+vim.keys.normal_mode.del("v", "<C-k>")
+vim.keys.normal_mode.del("v", "<C-j>")
 lvim.keys.normal_mode["<leader>gs"] = ""
 lvim.keys.normal_mode["<leader>gC"] = ""
 lvim.keys.normal_mode["<leader>gc"] = ""
@@ -271,7 +271,6 @@ if o6 then
   })
 end
 
-vim.g.transparent_enable = true
 vim.api.nvim_create_autocmd('ColorScheme', { command = 'highlight clear Folded' })
 
 -- ------------------------------------------------------------------------- }}}
