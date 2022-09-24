@@ -21,6 +21,8 @@ lvim.leader = "space"
 lvim.log.level = "warn"
 lvim.transparent_window = true
 
+vim.g.maplocalleader = [[,]]
+
 -- ------------------------------------------------------------------------- }}}
 -- {{{ Unmap default default LunarVim keys.
 
@@ -74,10 +76,9 @@ lvim.keys.normal_mode['zj'] = 'zcjzOzz'
 -- Close current fold when open. Always open previous fold.
 lvim.keys.normal_mode['zk'] = 'zckzOzz'
 
-
 -- Copy & Paste
-lvim.keys.normal_mode["<leader>cc"] = 'ggVGg_"+y'
-lvim.keys.normal_mode["<leader>cv"] = '"+p'
+lvim.keys.normal_mode["<localleader>cc"] = 'ggVGg_"+y'
+lvim.keys.normal_mode["<localleader>cv"] = '"+p'
 
 -- Show only this buffer.
 lvim.keys.normal_mode["<leader>oo"] = '<cmd>only<cr>'
@@ -96,6 +97,15 @@ lvim.keys.normal_mode["<leader>gh"] = "<cmd>vert bo help fugitive<cr>"
 lvim.keys.normal_mode["<leader>gp"] = "<cmd>G push<cr>"
 lvim.keys.normal_mode["<leader>gs"] = "<cmd>G<cr>"
 lvim.keys.normal_mode["<leader>gu"] = "<cmd>call GenerateUmlDiagram()<cr>"
+
+lvim.keys.normal_mode["<localleader>gL"] = "<cmd>G log<cr>"
+lvim.keys.normal_mode["<localleader>gP"] = "<cmd>G pull<cr>"
+lvim.keys.normal_mode["<localleader>gc"] = "<cmd>G commit<cr>"
+lvim.keys.normal_mode["<localleader>gd"] = "<cmd>G diff<cr>"
+lvim.keys.normal_mode["<localleader>gh"] = "<cmd>vert bo help fugitive<cr>"
+lvim.keys.normal_mode["<localleader>gp"] = "<cmd>G push<cr>"
+lvim.keys.normal_mode["<localleader>gs"] = "<cmd>G<cr>"
+lvim.keys.normal_mode["<localleader>gu"] = "<cmd>call GenerateUmlDiagram()<cr>"
 
 -- ------------------------------------------------------------------------- }}}
 -- {{{ User Config for predefined plugins
