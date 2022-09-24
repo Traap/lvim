@@ -8,22 +8,22 @@
 
 lvim.builtin.alpha.active = false
 lvim.builtin.terminal.active = false
+lvim.builtin.nvimtree.setup.renderer.icons.show.git = true
+lvim.builtin.lualine.style = "default"
 
 -- ------------------------------------------------------------------------- }}}
 -- {{{ General
 
-lvim.colorscheme = "onedarker"
+-- lvim.colorscheme = "onedarker"
+lvim.colorscheme = "base16-tokyo-night-terminal-storm"
 lvim.format_on_save = true
 lvim.leader = "space"
-lvim.line_wrap_cursor_movement = false
 lvim.log.level = "warn"
 lvim.transparent_window = true
 
 -- ------------------------------------------------------------------------- }}}
 -- {{{ Unmap default default LunarVim keys.
 
--- vim.keys.normal_mode.del("v", "<C-k>")
--- vim.keys.normal_mode.del("v", "<C-j>")
 lvim.keys.normal_mode["<leader>gs"] = ""
 lvim.keys.normal_mode["<leader>gC"] = ""
 lvim.keys.normal_mode["<leader>gc"] = ""
@@ -203,7 +203,7 @@ lvim.plugins = {
 -- ------------------------------------------------------------------------- }}}
 -- {{{ My options.
 
-vim.opt.background = "dark"
+-- vim.opt.background = "dark"
 vim.opt.cmdheight = 1
 vim.opt.cursorline = false
 vim.opt.expandtab = true
@@ -216,6 +216,7 @@ vim.opt.showbreak = "↪"
 vim.opt.showtabline = 0
 vim.opt.textwidth = 80
 vim.opt.wrap = false
+vim.opt.whichwrap = ""
 
 -- ------------------------------------------------------------------------- }}}
 -- {{{ Bullet plugin settings.
@@ -260,13 +261,8 @@ end
 --   })
 -- end
 
-local o5, _ = pcall(require, 'base16-colorscheme')
+local o5, transparent = pcall(require, 'transparent')
 if o5 then
-  vim.cmd('colorscheme base16-tokyo-night-terminal-storm')
-end
-
-local o6, transparent = pcall(require, 'transparent')
-if o6 then
   transparent.setup({
     enable = true,
     extra_gropus = {
