@@ -4,6 +4,12 @@
 -- a path to an executable.
 --
 -- ------------------------------------------------------------------------- }}}
+-- {{{ lvim builtin options.
+
+lvim.builtin.alpha.active = false
+lvim.builtin.terminal.active = false
+
+-- ------------------------------------------------------------------------- }}}
 -- {{{ General
 
 lvim.colorscheme = "onedarker"
@@ -16,8 +22,8 @@ lvim.transparent_window = true
 -- ------------------------------------------------------------------------- }}}
 -- {{{ Unmap default default LunarVim keys.
 
-vim.keys.normal_mode.del("v", "<C-k>")
-vim.keys.normal_mode.del("v", "<C-j>")
+-- vim.keys.normal_mode.del("v", "<C-k>")
+-- vim.keys.normal_mode.del("v", "<C-j>")
 lvim.keys.normal_mode["<leader>gs"] = ""
 lvim.keys.normal_mode["<leader>gC"] = ""
 lvim.keys.normal_mode["<leader>gc"] = ""
@@ -42,6 +48,9 @@ lvim.keys.normal_mode["<C-g>"] = "<cmd>cd $GITHOME<cr>"
 
 -- Toggle NvimTree
 lvim.keys.normal_mode["<C-n>"] = "<cmd>NvimTreeToggle<cr>"
+
+-- Quit now without saving.
+lvim.keys.normal_mode["<C-q>"] = "<cmd>qall!<cr>"
 
 -- sxhkd filetype
 lvim.keys.normal_mode["<C-s>"] = "<cmd>set filetype=sxhkd<cr>"
@@ -77,7 +86,7 @@ lvim.keys.normal_mode["<leader>oo"] = '<cmd>only<cr>'
 lvim.keys.normal_mode["<leader> "] = '<cmd>nohlsearch<cr>'
 
 -- ------------------------------------------------------------------------- }}}
--- {{{ Fugitivqas
+-- {{{ Fugitive
 
 lvim.keys.normal_mode["<leader>gL"] = "<cmd>G log<cr>"
 lvim.keys.normal_mode["<leader>gP"] = "<cmd>G pull<cr>"
@@ -162,6 +171,7 @@ lvim.plugins = {
 
   { "mechatroner/rainbow_csv" },
 
+  { "tpope/vim-bundler" },
   { "tpope/vim-characterize" },
   { "tpope/vim-commentary" },
   { "tpope/vim-dispatch" },
