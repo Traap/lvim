@@ -7,25 +7,27 @@
 -- {{{ lvim builtin options.
 
 lvim.builtin.alpha.active = false
-lvim.builtin.terminal.active = false
-lvim.builtin.nvimtree.setup.renderer.icons.show.git = true
+lvim.builtin.indentlines.active = false
 lvim.builtin.lualine.style = "default"
+lvim.builtin.nvimtree.setup.renderer.icons.show.git = true
+lvim.builtin.project.active = false
+lvim.builtin.terminal.active = false
 
 -- ------------------------------------------------------------------------- }}}
--- {{{ General
+-- {{{ ColorScheme and leaders.
 
--- lvim.colorscheme = "onedarker"
 lvim.colorscheme = "base16-tokyo-night-terminal-storm"
 lvim.format_on_save = true
-lvim.leader = "space"
 lvim.log.level = "warn"
 lvim.transparent_window = true
 
+lvim.leader = "space"
 vim.g.maplocalleader = [[,]]
 
 -- ------------------------------------------------------------------------- }}}
 -- {{{ Unmap default default LunarVim keys.
 
+-- Note:  Unmapping doesn't seame towork.
 lvim.keys.normal_mode["<leader>gs"] = ""
 lvim.keys.normal_mode["<leader>gC"] = ""
 lvim.keys.normal_mode["<leader>gc"] = ""
@@ -67,19 +69,6 @@ lvim.keys.normal_mode["vv"] = "^vg_"
 lvim.keys.normal_mode["vaa"] = "ggvGg_"
 lvim.keys.normal_mode["Vaa"] = "ggVG'"
 
--- Author: Karl Yngve Lervåg
---    See: https://github.com/lervag/dotnvim
-
--- Close current fold when open. Always open next fold.
-lvim.keys.normal_mode['zj'] = 'zcjzOzz'
-
--- Close current fold when open. Always open previous fold.
-lvim.keys.normal_mode['zk'] = 'zckzOzz'
-
--- Copy & Paste
-lvim.keys.normal_mode["<localleader>cc"] = 'ggVGg_"+y'
-lvim.keys.normal_mode["<localleader>cv"] = '"+p'
-
 -- Show only this buffer.
 lvim.keys.normal_mode["<leader>oo"] = '<cmd>only<cr>'
 
@@ -87,16 +76,52 @@ lvim.keys.normal_mode["<leader>oo"] = '<cmd>only<cr>'
 lvim.keys.normal_mode["<leader> "] = '<cmd>nohlsearch<cr>'
 
 -- ------------------------------------------------------------------------- }}}
--- {{{ Fugitive
+-- {{{ Folding commands.
 
-lvim.keys.normal_mode["<leader>gL"] = "<cmd>G log<cr>"
-lvim.keys.normal_mode["<leader>gP"] = "<cmd>G pull<cr>"
-lvim.keys.normal_mode["<leader>gc"] = "<cmd>G commit<cr>"
-lvim.keys.normal_mode["<leader>gd"] = "<cmd>G diff<cr>"
-lvim.keys.normal_mode["<leader>gh"] = "<cmd>vert bo help fugitive<cr>"
-lvim.keys.normal_mode["<leader>gp"] = "<cmd>G push<cr>"
-lvim.keys.normal_mode["<leader>gs"] = "<cmd>G<cr>"
-lvim.keys.normal_mode["<leader>gu"] = "<cmd>call GenerateUmlDiagram()<cr>"
+-- Author: Karl Yngve Lervåg
+--    See: https://github.com/lervag/dotnvim
+
+-- Close all fold exceptthe current one.
+lvim.keys.normal_mode['zv'] = 'zMzvzz'
+
+-- Close current fold when open. Always open next fold.
+lvim.keys.normal_mode['zj'] = 'zcjzOzz'
+
+-- Close current fold when open. Always open previous fold.
+lvim.keys.normal_mode['zk'] = 'zckzOzz'
+
+-- ------------------------------------------------------------------------- }}}
+-- {{{ Copy and Paste
+
+lvim.keys.normal_mode["<localleader>cc"] = 'ggVGg_"+y'
+lvim.keys.visual_mode["<localleader>cc"] = '"+y'
+lvim.keys.normal_mode["<localleader>cv"] = '"+p'
+
+-- ------------------------------------------------------------------------- }}}
+-- {{{ KVJ and shell commands.
+
+-- KJV bindings.
+lvim.keys.normal_mode["gk"] = [[0mMvg_"ky :exec "r!kjv -b -w 65 -d" getreg("k")<cr>]]
+lvim.keys.visual_mode["gk"] = [["ky :exec "r!kjv -b -w 65 -d" getreg("k")<cr>]]
+
+-- Execute the current line of test as a shell command.
+lvim.keys.normal_mode["<localleader>E"] = [[0mMvg_"ky :exec "r!" getreg("k")<cr>]]
+lvim.keys.visual_mode["<localleader>E"] = [["ky :exec "r!" getreg("k")<cr>]]
+
+-- Display help in a vertical buffer.
+lvim.keys.normal_mode["<leader>HH"] = "<cmd>vert bo help<cr>"
+lvim.keys.visual_mode["<leader>HH"] = [["ky :exec "vert bo help" getreg("k")<cr>]]
+
+-- ------------------------------------------------------------------------- }}}
+-- {{{ Resize buffers.
+
+lvim.keys.normal_mode["<localleader>h"] = "<cmd>vertical resize -1<cr>"
+lvim.keys.normal_mode["<localleader>j"] = "<cmd>resize +1<cr>"
+lvim.keys.normal_mode["<localleader>k"] = "<cmd>resize -1<cr>"
+lvim.keys.normal_mode["<localleader>l"] = "<cmd>vertical resize +1<cr>"
+
+-- ------------------------------------------------------------------------- }}}
+-- {{{ Fugitive
 
 lvim.keys.normal_mode["<localleader>gL"] = "<cmd>G log<cr>"
 lvim.keys.normal_mode["<localleader>gP"] = "<cmd>G pull<cr>"
