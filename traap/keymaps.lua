@@ -1,3 +1,17 @@
+-- {{{ Leader and maplocalleader
+
+lvim.leader = "space"
+vim.g.maplocalleader = [[,]]
+
+-- ------------------------------------------------------------------------- }}}
+-- {{{ Unmap default default LunarVim keys.
+
+-- Note:  Unmapping doesn't seame towork.
+lvim.keys.normal_mode["<leader>gs"] = ""
+lvim.keys.normal_mode["<leader>gC"] = ""
+lvim.keys.normal_mode["<leader>gc"] = ""
+
+-- ------------------------------------------------------------------------- }}}
 -- {{{ Easy align
 
 lvim.keys.normal_mode["ga"] = "<Plug>(EasyAlign)"
