@@ -10,6 +10,8 @@ lvim.builtin.alpha.active = false
 lvim.builtin.alpha.active = true
 lvim.builtin.alpha.mode = "dashboard"
 
+lvim.builtin.breadcrumbs.active = true
+
 lvim.builtin.bufferline.active = false
 lvim.builtin.indentlines.active = false
 

@@ -1,58 +1,58 @@
 -- {{{ Leader and maplocalleader
 
+local keymap = require('traap.helpers').keymap
+
+
 lvim.leader = "space"
 vim.g.maplocalleader = [[,]]
 
--- ------------------------------------------------------------------------- }}}
--- {{{ Unmap default default LunarVim keys.
+-- ------------------------------------------------------------------------ }}}
+-- {{{ Ummap default LunarVim keys.
 
--- Note:  Unmapping doesn't seame towork.
 lvim.keys.normal_mode["<leader>gs"] = ""
 lvim.keys.normal_mode["<leader>gC"] = ""
 lvim.keys.normal_mode["<leader>gc"] = ""
 
--- ------------------------------------------------------------------------- }}}
+-- ------------------------------------------------------------------------ }}}
 -- {{{ Easy align
 
-lvim.keys.normal_mode["ga"] = "<Plug>(EasyAlign)"
-lvim.keys.normal_mode["<bar>"] = "gaip*<bar>"
-lvim.keys.normal_mode["<leader>0"] = "gaip*,"
-lvim.keys.normal_mode["<leader>1"] = "gaip=,"
-lvim.keys.normal_mode["<leader>2"] = "gaip=<space>,"
+vim.cmd([[
+  xmap ga <Plug>(EasyAlign)
+  nmap ga <Plug>(EasyAlign)
+  nmap <bar>     gaip*<bar>
+  nmap <leader>0 gaip*,
+  nmap <leader>1 gaip=,
+  nmap <leader>2 gaip=<space>
+]])
 
 -- ------------------------------------------------------------------------- }}}
 -- {{{ General keybindings.
 
--- Save all files
-lvim.keys.normal_mode["<F2>"] = "<cmd>wall<cr>"
 
 -- Move to $GITHOME
-lvim.keys.normal_mode["<C-g>"] = "<cmd>cd $GITHOME<cr>"
+keymap('n', '<c-g>', '<cmd>cd $GITHOME<cr>')
 
--- Toggle NvimTree
-lvim.keys.normal_mode["<C-n>"] = "<cmd>NvimTreeToggle<cr>"
+-- Quit now
+keymap('n', '<c-q>', '<cmd>qall!<cr>')
 
--- Quit now without saving.
-lvim.keys.normal_mode["<C-q>"] = "<cmd>qall!<cr>"
-
--- sxhkd filetype
-lvim.keys.normal_mode["<C-s>"] = "<cmd>set filetype=sxhkd<cr>"
+-- sxhkd filetype.
+keymap('n', '<c-s>', '<cmd>set filetype=sxhkd<cr>')
 
 -- Delete the current line.
-lvim.keys.normal_mode["-"] = "dd"
+keymap('n', '-', 'dd')
 
--- Select (charwise) the contensts of the current line, excluding indentation.
-lvim.keys.normal_mode["vv"] = "^vg_"
+-- Toggle NvimTree
+keymap('n', '<c-n>', '<cmd>NvimTreeToggle<cr>')
 
--- Select entire buffer.
-lvim.keys.normal_mode["vaa"] = "ggvGg_"
-lvim.keys.normal_mode["Vaa"] = "ggVG'"
+-- Select (charwise) the contents of the current line, excluding indentation.
+keymap('n', 'vv', '^vg_')
 
--- Show only this buffer.
-lvim.keys.normal_mode["<leader>oo"] = '<cmd>only<cr>'
+-- Select entire buffer
+keymap('n', 'vaa', 'ggvGg_')
+keymap('n', 'Vaa', 'ggVG')
 
--- Clear highlights.
-lvim.keys.normal_mode["<leader> "] = '<cmd>nohlsearch<cr>'
+-- Save all files.
+keymap('n', '<F2>', '<cmd>wall<cr>')
 
 -- ------------------------------------------------------------------------- }}}
 -- {{{ Folding commands.
@@ -60,55 +60,58 @@ lvim.keys.normal_mode["<leader> "] = '<cmd>nohlsearch<cr>'
 -- Author: Karl Yngve Lervåg
 --    See: https://github.com/lervag/dotnvim
 
--- Close all fold exceptthe current one.
-lvim.keys.normal_mode['zv'] = 'zMzvzz'
+-- Close all fold except the current one.
+keymap('n', 'zv', 'zMzvzz')
 
 -- Close current fold when open. Always open next fold.
-lvim.keys.normal_mode['zj'] = 'zcjzOzz'
+keymap('n', 'zj', 'zcjzOzz')
 
 -- Close current fold when open. Always open previous fold.
-lvim.keys.normal_mode['zk'] = 'zckzOzz'
+keymap('n', 'zk', 'zckzOzz')
 
 -- ------------------------------------------------------------------------- }}}
 -- {{{ Copy and Paste
 
-lvim.keys.normal_mode["<localleader>cc"] = 'ggVGg_"+y'
-lvim.keys.visual_mode["<localleader>cc"] = '"+y'
-lvim.keys.normal_mode["<localleader>cv"] = '"+p'
+-- Visual yank
+keymap('v', '<leader>cc', '"+y')
+keymap('n', '<leader>cc', 'ggVGg_"+y')
+
+keymap('n', '<leader>cv>', '"+p')
+
 
 -- ------------------------------------------------------------------------- }}}
 -- {{{ KVJ and shell commands.
 
 -- KJV bindings.
-lvim.keys.normal_mode["gk"] = [[0mMvg_"ky :exec "r!kjv -b -w 65 -d" getreg("k")<cr>]]
-lvim.keys.visual_mode["gk"] = [["ky :exec "r!kjv -b -w 65 -d" getreg("k")<cr>]]
+keymap('n', 'gk', [[0mMvg_"ky :exec "r!kjv -b -w 65 -d" getreg("k")<cr>]])
+keymap('v', 'gk', [["ky :exec "r!kjv -b -w 65 -d" getreg("k")<cr>]])
 
 -- Execute the current line of test as a shell command.
-lvim.keys.normal_mode["<localleader>E"] = [[0mMvg_"ky :exec "r!" getreg("k")<cr>]]
-lvim.keys.visual_mode["<localleader>E"] = [["ky :exec "r!" getreg("k")<cr>]]
+keymap('n', '<leader>E', [[0mMvg_"ky :exec "r!" getreg("k")<cr>]])
+keymap('v', '<leader>E', [["ky :exec "r!" getreg("k")<cr>]])
 
 -- Display help in a vertical buffer.
-lvim.keys.normal_mode["<leader>HH"] = "<cmd>vert bo help<cr>"
-lvim.keys.visual_mode["<leader>HH"] = [["ky :exec "vert bo help" getreg("k")<cr>]]
+keymap('n', '<leader>HH', [[<cmd>vert bo help<cr>]])
+keymap('v', '<leader>HH', [["ky :exec "vert bo help" getreg("k")<cr>]])
 
 -- ------------------------------------------------------------------------- }}}
 -- {{{ Resize buffers.
 
-lvim.keys.normal_mode["<localleader>h"] = "<cmd>vertical resize -1<cr>"
-lvim.keys.normal_mode["<localleader>j"] = "<cmd>resize +1<cr>"
-lvim.keys.normal_mode["<localleader>k"] = "<cmd>resize -1<cr>"
-lvim.keys.normal_mode["<localleader>l"] = "<cmd>vertical resize +1<cr>"
+keymap('n', '<localleader>h', [[<cmd>vertical resize -1<cr>]])
+keymap('n', '<localleader>j', [[<cmd>resize +1<cr>]])
+keymap('n', '<localleader>k', [[<cmd>resize -1<cr>]])
+keymap('n', '<localleader>l', [[<cmd>vertical resize +1<cr>]])
 
 -- ------------------------------------------------------------------------- }}}
 -- {{{ Fugitive
 
-lvim.keys.normal_mode["<localleader>gL"] = "<cmd>G log<cr>"
-lvim.keys.normal_mode["<localleader>gP"] = "<cmd>G pull<cr>"
-lvim.keys.normal_mode["<localleader>gc"] = "<cmd>G commit<cr>"
-lvim.keys.normal_mode["<localleader>gd"] = "<cmd>G diff<cr>"
-lvim.keys.normal_mode["<localleader>gh"] = "<cmd>vert bo help fugitive<cr>"
-lvim.keys.normal_mode["<localleader>gp"] = "<cmd>G push<cr>"
-lvim.keys.normal_mode["<localleader>gs"] = "<cmd>G<cr>"
-lvim.keys.normal_mode["<localleader>gu"] = "<cmd>call GenerateUmlDiagram()<cr>"
+keymap('n', '<localleader>gL', '<cmd>G log<cr>')
+keymap('n', '<localleader>gP', '<cmd>G pull<cr>')
+keymap('n', '<localleader>gc', '<cmd>G commit<cr>')
+keymap('n', '<localleader>gd', '<cmd>G diff<cr>')
+keymap('n', '<localleader>gh', '<cmd>vert bo help fugitive<cr>')
+keymap('n', '<localleader>gp', '<cmd>G push<cr>')
+keymap('n', '<localleader>gs', '<cmd>G<cr>')
+keymap('n', '<localleader>gu', '<cmd>call GenerateUmlDiagram()<cr>')
 
 -- ------------------------------------------------------------------------- }}}
