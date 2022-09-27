@@ -1,6 +1,6 @@
-require 'traap.plugins'
-require 'traap.options'
-require 'traap.keymaps'
-require 'traap.lsp'
-require 'traap.treesitter'
-require 'traap.zymurgy'
+require "traap.plugins"
+require "traap.options"
+require "traap.keymaps"
+require "traap.lsp"
+require "traap.treesitter"
+require "traap.zymurgy"
