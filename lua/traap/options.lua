@@ -6,7 +6,7 @@
 -- ------------------------------------------------------------------------- }}}
 -- {{{ Enable or disable lvim options.
 
-lvim.builtin.alpha.active = false
+lvim.builtin.alpha.active = true
 lvim.builtin.alpha.mode = "dashboard"
 
 lvim.builtin.breadcrumbs.active = true
@@ -24,7 +24,7 @@ lvim.builtin.project.active = false
 lvim.builtin.tabnine = { active = false }
 lvim.builtin.terminal.active = false
 
-lvim.format_on_save = true
+lvim.format_on_save = false
 lvim.log.level = "warn"
 
 lvim.colorscheme = "base16-tokyo-night-terminal-storm"
