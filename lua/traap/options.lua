@@ -7,7 +7,6 @@
 -- {{{ Enable or disable lvim options.
 
 lvim.builtin.alpha.active = false
-lvim.builtin.alpha.active = true
 lvim.builtin.alpha.mode = "dashboard"
 
 lvim.builtin.breadcrumbs.active = true
@@ -19,37 +18,40 @@ lvim.builtin.indentlines.active = false
 lvim.builtin.notify.active = true
 
 lvim.builtin.nvimtree.setup.renderer.icons.show.git = true
-lvim.builtin.nvimtree.setup.renderer.icons.show.git = true
 lvim.builtin.nvimtree.setup.view.side = "right"
 
 lvim.builtin.project.active = false
 lvim.builtin.tabnine = { active = false }
 lvim.builtin.terminal.active = false
-lvim.builtin.terminal.active = true
+
+lvim.format_on_save = true
+lvim.log.level = "warn"
+
+lvim.colorscheme = "base16-tokyo-night-terminal-storm"
+lvim.transparent_window = true
 
 -- ------------------------------------------------------------------------- }}}
 -- {{{ My options.
 
--- lvim
-lvim.colorscheme = "base16-tokyo-night-terminal-storm"
-lvim.format_on_save = true
-lvim.log.level = "warn"
-lvim.transparent_window = true
+local options = {
+  cmdheight = 1,
+  cursorline = false,
+  expandtab = true,
+  fillchars = "fold: ",
+  foldlevel = 20,
+  foldmethod = "marker",
+  lazyredraw = true,
+  relativenumber = true,
+  showbreak = "↪",
+  showtabline = 0,
+  textwidth = 80,
+  wrap = false,
+  whichwrap = "",
+}
 
--- vim
-vim.opt.cmdheight = 1
-vim.opt.cursorline = false
-vim.opt.expandtab = true
-vim.opt.fillchars = "fold: "
-vim.opt.foldlevel = 20
-vim.opt.foldmethod = "marker"
-vim.opt.lazyredraw = true
-vim.opt.relativenumber = true
-vim.opt.showbreak = "↪"
-vim.opt.showtabline = 0
-vim.opt.textwidth = 80
-vim.opt.wrap = false
-vim.opt.whichwrap = ""
+for k, v in pairs(options) do
+  vim.opt[k] = v
+end
 
 -- ------------------------------------------------------------------------- }}}
 -- {{{ Bullet plugin settings.

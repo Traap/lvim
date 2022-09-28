@@ -1,6 +1,6 @@
 -- {{{ Plugins
-
 lvim.plugins = {
+  "NvChad/nvim-colorizer.lua",
   "aklt/plantuml-syntax",
   "christoomey/vim-tmux-navigator",
   "christoomey/vim-tmux-runner",
@@ -18,6 +18,7 @@ lvim.plugins = {
   "lervag/wiki.vim",
   "lunarvim/colorschemes",
   "mechatroner/rainbow_csv",
+  "moll/vim-bbye",
   "tpope/vim-bundler",
   "tpope/vim-characterize",
   "tpope/vim-commentary",
