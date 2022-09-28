@@ -9,9 +9,9 @@ vim.g.maplocalleader = [[,]]
 -- ------------------------------------------------------------------------ }}}
 -- {{{ Ummap default LunarVim keys.
 
-lvim.keys.normal_mode["<leader>gs"] = ""
-lvim.keys.normal_mode["<leader>gC"] = ""
-lvim.keys.normal_mode["<leader>gc"] = ""
+lvim.keys.normal_mode["<leader>gs"] = nil
+lvim.keys.normal_mode["<leader>gC"] = nil
+lvim.keys.normal_mode["<leader>gc"] = nil
 
 -- ------------------------------------------------------------------------ }}}
 -- {{{ Easy align
