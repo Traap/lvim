@@ -6,12 +6,12 @@
 -- ------------------------------------------------------------------------- }}}
 -- {{{ Enable or disable lvim options.
 
+
 lvim.builtin.alpha.active = true
 lvim.builtin.alpha.mode = "dashboard"
-
 lvim.builtin.breadcrumbs.active = true
-
 lvim.builtin.bufferline.active = false
+lvim.builtin.illuminate.active = false
 lvim.builtin.indentlines.active = false
 
 -- lvim.builtin.lualine.style = "default"
