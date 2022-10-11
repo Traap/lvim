@@ -25,10 +25,10 @@ vim.cmd([[
 keymap('n', '<C-i>', '<C-i>')
 
 -- Move to $GITHOME
-keymap('n', '<c-g>', '<cmd>cd $GITHOME<cr>')
+-- keymap('n', '<c-g>', '<cmd>cd $GITHOME<cr>')
 
 -- Quit now
-keymap('n', '<c-q>', '<cmd>qall!<cr>')
+-- keymap('n', '<c-q>', '<cmd>qall!<cr>')
 
 -- sxhkd filetype.
 keymap('n', '<c-s>', '<cmd>set filetype=sxhkd<cr>')
@@ -78,23 +78,15 @@ keymap('n', '<localleader>cc', [[ggVGg_"+y]])
 keymap('n', '<localleader>cv', [[s"+p]])
 
 -- ------------------------------------------------------------------------- }}}
--- {{{ KVJ and shell commands.
-
--- KJV bindings.
-keymap('n', 'gk', [[0mMvg_"ky :exec "r!kjv -b -w 65 -d" getreg("k")<cr>]])
-keymap('v', 'gk', [["ky :exec "r!kjv -b -w 65 -d" getreg("k")<cr>]])
+-- {{{ Shell commands.
 
 -- Execute the current line of test as a shell command.
 keymap('n', '<localleader>E', [[0mMvg_"ky :exec "r!" getreg("k")<cr>]])
 keymap('v', '<localleader>E', [["ky :exec "r!" getreg("k")<cr>]])
 
--- Display help in a vertical buffer.
-keymap('n', '<localleader>HH', [[<cmd>vert bo help<cr>]])
-keymap('v', '<localleader>HH', [["ky :exec "vert bo help" getreg("k")<cr>]])
-
 -- ------------------------------------------------------------------------- }}}
--- {{{ NvimTree
+-- -- {{{ NvimTree
 
-keymap('n', '<c-n>', '<cmd>NvimTreeToggle<cr>')
+-- keymap('n', '<c-n>', '<cmd>NvimTreeToggle<cr>')
 
 -- ------------------------------------------------------------------------- }}}

@@ -1,13 +1,43 @@
--- {{{ Lvim builting utility keys
+-- {{{ leader + 1 key.
 
 lvim.builtin.which_key.mappings["b"] = { "<cmd>Telescope buffers<cr>", "Buffers" }
 lvim.builtin.which_key.mappings["v"] = { "<cmd>vsplit<cr>", "vsplit" }
 lvim.builtin.which_key.mappings[" "] = { "<cmd>nohlsearch<cr>", "nohl" }
 lvim.builtin.which_key.mappings["w"] = { "<cmd>w<CR>", "Write" }
-lvim.builtin.which_key.mappings["q"] = { '<cmd>lua require("user.functions").smart_quit()<CR>', "Quit" }
 lvim.builtin.which_key.mappings["/"] = { '<cmd>lua require("Comment.api").toggle.linewise.current()<CR>', "Comment" }
-lvim.builtin.which_key.mappings["c"] = { "<cmd>Bdelete!<CR>", "Close Buffer" }
 lvim.builtin.which_key.mappings["gy"] = "Link"
+
+lvim.builtin.which_key.mappings["q"] = { "<cmd>Bdelete!<CR>", "Close Buffer" }
+lvim.builtin.which_key.mappings["Q"] = { "<cmd>bufdo<cmd>Bdelete!<CR>", "Close Buffer" }
+
+-- ------------------------------------------------------------------------- }}}
+-- {{{ L - LSP
+
+lvim.builtin.which_key.mappings["L"] = {
+	name = "LSP",
+	F = { "<cmd>LspToggleAutoFormat<cr>", "Toggle Autoformat" },
+	H = { "<cmd>IlluminationToggle<cr>", "Toggle Doc HL" },
+	I = { "<cmd>LspInstallInfo<cr>", "Installer Info" },
+	R = { "<cmd>TroubleToggle lsp_references<cr>", "References" },
+	S = { "<cmd>Telescope lsp_dynamic_workspace_symbols<cr>", "Workspace Symbols", },
+	a = { "<cmd>lua vim.lsp.buf.code_action()<cr>", "Code Action" },
+	c = { "<cmd>lua require('user.lsp').server_capabilities()<cr>", "Get Capabilities" },
+	d = { "<cmd>TroubleToggle<cr>", "Diagnostics" },
+	f = { "<cmd>lua vim.lsp.buf.format({ async = true })<cr>", "Format" },
+	h = { "<cmd>lua require('lsp-inlayhints').toggle()<cr>", "Toggle Hints" },
+	i = { "<cmd>LspInfo<cr>", "Info" },
+	j = { "<cmd>lua vim.diagnostic.goto_next({buffer=0})<CR>", "Next Diagnostic", },
+	k = { "<cmd>lua vim.diagnostic.goto_prev({buffer=0})<cr>", "Prev Diagnostic", },
+	l = { "<cmd>lua vim.lsp.codelens.run()<cr>", "CodeLens Action" },
+	o = { "<cmd>SymbolsOutline<cr>", "Outline" },
+	q = { "<cmd>lua vim.lsp.diagnostic.set_loclist()<cr>", "Quickfix" },
+	r = { "<cmd>lua vim.lsp.buf.rename()<cr>", "Rename" },
+	s = { "<cmd>Telescope lsp_document_symbols<cr>", "Document Symbols" },
+	t = { '<cmd>lua require("user.functions").toggle_diagnostics()<cr>', "Toggle Diagnostics" },
+	u = { "<cmd>LuaSnipUnlinkCurrent<cr>", "Unlink Snippet" },
+	v = { "<cmd>lua require('lsp_lines').toggle()<cr>", "Virtual Text" },
+	w = { "<cmd>Telescope lsp_workspace_diagnostics<cr>", "Workspace Diagnostics", },
+}
 
 -- ------------------------------------------------------------------------- }}}
 -- {{{ a - Alpha
@@ -34,13 +64,13 @@ lvim.builtin.which_key.mappings["b"] = {
 
 lvim.builtin.which_key.mappings["d"] = {
 	name = "Debug",
+	O = { "<cmd>lua require'dap'.step_out()<cr>", "Out" },
 	b = { "<cmd>lua require'dap'.toggle_breakpoint()<cr>", "Breakpoint" },
 	c = { "<cmd>lua require'dap'.continue()<cr>", "Continue" },
 	i = { "<cmd>lua require'dap'.step_into()<cr>", "Into" },
-	o = { "<cmd>lua require'dap'.step_over()<cr>", "Over" },
-	O = { "<cmd>lua require'dap'.step_out()<cr>", "Out" },
-	r = { "<cmd>lua require'dap'.repl.toggle()<cr>", "Repl" },
 	l = { "<cmd>lua require'dap'.run_last()<cr>", "Last" },
+	o = { "<cmd>lua require'dap'.step_over()<cr>", "Over" },
+	r = { "<cmd>lua require'dap'.repl.toggle()<cr>", "Repl" },
 	u = { "<cmd>lua require'dapui'.toggle()<cr>", "UI" },
 	x = { "<cmd>lua require'dap'.terminate()<cr>", "Exit" },
 }
@@ -102,44 +132,27 @@ lvim.builtin.which_key.mappings["g"] = {
 }
 
 -- ------------------------------------------------------------------------- }}}
--- {{{ l - LSP
+-- {{{ l - VimTex
 
 lvim.builtin.which_key.mappings["l"] = {
-	name = "LSP",
+	name = "VimTex",
 	a = { "<cmd>lua vim.lsp.buf.code_action()<cr>", "Code Action" },
 	c = { "<cmd>lua require('user.lsp').server_capabilities()<cr>", "Get Capabilities" },
 	d = { "<cmd>TroubleToggle<cr>", "Diagnostics" },
-	w = {
-		"<cmd>Telescope lsp_workspace_diagnostics<cr>",
-		"Workspace Diagnostics",
-	},
 	f = { "<cmd>lua vim.lsp.buf.format({ async = true })<cr>", "Format" },
-	F = { "<cmd>LspToggleAutoFormat<cr>", "Toggle Autoformat" },
-	i = { "<cmd>LspInfo<cr>", "Info" },
 	h = { "<cmd>lua require('lsp-inlayhints').toggle()<cr>", "Toggle Hints" },
-	H = { "<cmd>IlluminationToggle<cr>", "Toggle Doc HL" },
-	I = { "<cmd>LspInstallInfo<cr>", "Installer Info" },
-	j = {
-		"<cmd>lua vim.diagnostic.goto_next({buffer=0})<CR>",
-		"Next Diagnostic",
-	},
-	k = {
-		"<cmd>lua vim.diagnostic.goto_prev({buffer=0})<cr>",
-		"Prev Diagnostic",
-	},
-	v = { "<cmd>lua require('lsp_lines').toggle()<cr>", "Virtual Text" },
+	i = { "<cmd>LspInfo<cr>", "Info" },
+	j = { "<cmd>lua vim.diagnostic.goto_next({buffer=0})<CR>", "Next Diagnostic", },
+	k = { "<cmd>lua vim.diagnostic.goto_prev({buffer=0})<cr>", "Prev Diagnostic", },
 	l = { "<cmd>lua vim.lsp.codelens.run()<cr>", "CodeLens Action" },
 	o = { "<cmd>SymbolsOutline<cr>", "Outline" },
 	q = { "<cmd>lua vim.lsp.diagnostic.set_loclist()<cr>", "Quickfix" },
 	r = { "<cmd>lua vim.lsp.buf.rename()<cr>", "Rename" },
-	R = { "<cmd>TroubleToggle lsp_references<cr>", "References" },
 	s = { "<cmd>Telescope lsp_document_symbols<cr>", "Document Symbols" },
-	S = {
-		"<cmd>Telescope lsp_dynamic_workspace_symbols<cr>",
-		"Workspace Symbols",
-	},
 	t = { '<cmd>lua require("user.functions").toggle_diagnostics()<cr>', "Toggle Diagnostics" },
 	u = { "<cmd>LuaSnipUnlinkCurrent<cr>", "Unlink Snippet" },
+	v = { "<cmd>lua require('lsp_lines').toggle()<cr>", "Virtual Text" },
+	w = { "<cmd>Telescope lsp_workspace_diagnostics<cr>", "Workspace Diagnostics", },
 }
 
 -- ------------------------------------------------------------------------- }}}
@@ -171,12 +184,105 @@ lvim.builtin.which_key.mappings["o"] = {
 }
 
 -- ------------------------------------------------------------------------- }}}
--- {{{ Disable lvim builtin whichkeys.
+-- {{{ Disable lvim builtin which_keys.
 
 lvim.builtin.which_key.mappings[";"] = nil
 lvim.builtin.which_key.mappings["c"] = nil
 lvim.builtin.which_key.mappings["L"] = nil
 lvim.builtin.which_key.mappings["s"] = nil
+
+-- ------------------------------------------------------------------------- }}}
+-- {{{ Load which_key.
+
+local status_ok, which_key = pcall(require, "which-key")
+if not status_ok then
+	return
+end
+
+-- ------------------------------------------------------------------------- }}}
+-- {{{ gn_opts
+
+local gn_opts = {
+	mode = "n", -- NORMAL mode
+	prefix = "g",
+	buffer = nil, -- Global mappings. Specify a buffer number for buffer local mappings
+	silent = true, -- use `silent` when creating keymaps
+	noremap = true, -- use `noremap` when creating keymaps
+	nowait = true, -- use `nowait` when creating keymaps
+}
+
+local gv_opts = {
+	mode = "v", -- NORMAL mode
+	prefix = "g",
+	buffer = nil, -- Global mappings. Specify a buffer number for buffer local mappings
+	silent = true, -- use `silent` when creating keymaps
+	noremap = true, -- use `noremap` when creating keymaps
+	nowait = true, -- use `nowait` when creating keymaps
+}
+
+-- ------------------------------------------------------------------------- }}}
+-- {{{ gn_mappings and gv_mappings
+
+local gn_mappings = {
+	k = {[[0mMvg_"ky :exec "r!kjv -b -w 65 -d" getreg("k")<cr>]], "Get KJV verse" },
+}
+
+local gv_mappings = {
+	k = {[["ky :exec "r!kjv -b -w 65 -d" getreg("k")<cr>]], "Get KJV verse" },
+}
+
+-- ------------------------------------------------------------------------- }}}
+-- {{{ hn_opts
+
+local hn_opts = {
+	mode = "n", -- NORMAL mode
+	prefix = "<leader>",
+	buffer = nil, -- Global mappings. Specify a buffer number for buffer local mappings
+	silent = true, -- use `silent` when creating keymaps
+	noremap = true, -- use `noremap` when creating keymaps
+	nowait = true, -- use `nowait` when creating keymaps
+}
+
+local hv_opts = {
+	mode = "v", -- NORMAL mode
+	prefix = "<leader>",
+	buffer = nil, -- Global mappings. Specify a buffer number for buffer local mappings
+	silent = true, -- use `silent` when creating keymaps
+	noremap = true, -- use `noremap` when creating keymaps
+	nowait = true, -- use `nowait` when creating keymaps
+}
+
+-- ------------------------------------------------------------------------- }}}
+-- {{{ hn_mappings and hv_mappings
+
+local hn_mappings = {
+	["hh"] = {[[<cmd>vert bo help<cr>]], "Help in vertical split" },
+}
+
+local hv_mappings = {
+	["hh"] = {[["ky :exec "vert bo help" getreg("k")<cr>]], "Help vertical lookup." },
+}
+
+-- ------------------------------------------------------------------------- }}}
+-- {{{ ctrl-opts
+
+local ctrl_opts = {
+	mode = "n", -- NORMAL mode
+	prefix = nil,
+	buffer = nil, -- Global mappings. Specify a buffer number for buffer local mappings
+	silent = true, -- use `silent` when creating keymaps
+	noremap = true, -- use `noremap` when creating keymaps
+	nowait = true, -- use `nowait` when creating keymaps
+}
+
+-- ------------------------------------------------------------------------- }}}
+-- {{{ ctrl_mappings
+
+local ctrl_mappings = {
+	["c-g"] = {[[cmd>cd $GITHOME<cr>]], 'cd $GITHOME'},
+	["c-n"] = {[[NvimToggle<cr>]], 'Toggle NvimTree'},
+	["c-q"] = {[[cmd>qall!<cr>]], 'Quit now!'},
+}
 
 -- ------------------------------------------------------------------------- }}}
 -- {{{ m_opts
@@ -189,14 +295,6 @@ local m_opts = {
 	noremap = true, -- use `noremap` when creating keymaps
 	nowait = true, -- use `nowait` when creating keymaps
 }
-
--- ------------------------------------------------------------------------- }}}
--- {{{ Load whichkey.
-
-local status_ok, which_key = pcall(require, "which-key")
-if not status_ok then
-	return
-end
 
 -- ------------------------------------------------------------------------- }}}
 -- {{{ m_mappings
@@ -222,8 +320,13 @@ local m_mappings = {
 }
 
 -- ------------------------------------------------------------------------- }}}
--- {{{ Setup and register.
+-- {{{ Register.
 
 which_key.register(m_mappings, m_opts)
+which_key.register(gn_mappings, gn_opts)
+which_key.register(gv_mappings, gv_opts)
+which_key.register(hn_mappings, hn_opts)
+which_key.register(hv_mappings, hv_opts)
+which_key.register(ctrl_mappings, ctrl_opts)
 
 -- ------------------------------------------------------------------------- }}}
