@@ -97,62 +97,31 @@ lvim.builtin.which_key.mappings["f"] = {
 }
 
 -- ------------------------------------------------------------------------- }}}
--- {{{ g - Git
-
-lvim.builtin.which_key.mappings["g"] = {
-	name = "Git",
-    P = { "<cmd>G pull<cr>", "pull" },
-    c = { "<cmd>G commit<cr>", "Commit" },
-    d = { "<cmd>G diff<cr>", "Diff" },
-    h = { "<cmd>vert bo help fugitive<cr>", "Help" },
-    l = { "<cmd>G log<cr>", "Log" },
-    p = { "<cmd>G push<cr>", "push" },
-    s = { "<cmd>G<cr>", "Status>" },
-    u = { "<cmd>call GenerateUmlDiagram()<cr>", "Status" },
-	G = {
-		name = "Gist",
-		a = { "<cmd>Gist -b -a<cr>", "Create Anon" },
-		d = { "<cmd>Gist -d<cr>", "Delete" },
-		f = { "<cmd>Gist -f<cr>", "Fork" },
-		g = { "<cmd>Gist -b<cr>", "Create" },
-		l = { "<cmd>Gist -l<cr>", "List" },
-		p = { "<cmd>Gist -b -p<cr>", "Create Private" },
-	},
-	S = {
-		name = "Signs",
-    R = { "<cmd>lua require 'gitsigns'.reset_hunk()<cr>", "Reset Hunk" },
-    S = { "<cmd>lua require 'gitsigns'.stage_hunk()<cr>", "Stage Hunk" },
-    d = { "<cmd>Gitsigns diffthis HEAD<cr>", "Diff", },
-    h = { "<cmd>lua require 'gitsigns'.undo_stage_hunk()<cr>", "Undo Stage Hunk", },
-    j = { "<cmd>lua require 'gitsigns'.next_hunk()<cr>", "Next Hunk" },
-    k = { "<cmd>lua require 'gitsigns'.prev_hunk()<cr>", "Prev Hunk" },
-    p = { "<cmd>lua require 'gitsigns'.preview_hunk()<cr>", "Preview Hunk" },
-    r = { "<cmd>lua require 'gitsigns'.reset_buffer()<cr>", "Reset Buffer" },
-	},
-}
-
--- ------------------------------------------------------------------------- }}}
 -- {{{ l - VimTex
 
 lvim.builtin.which_key.mappings["l"] = {
 	name = "VimTex",
-	a = { "<cmd>lua vim.lsp.buf.code_action()<cr>", "Code Action" },
-	c = { "<cmd>lua require('user.lsp').server_capabilities()<cr>", "Get Capabilities" },
-	d = { "<cmd>TroubleToggle<cr>", "Diagnostics" },
-	f = { "<cmd>lua vim.lsp.buf.format({ async = true })<cr>", "Format" },
-	h = { "<cmd>lua require('lsp-inlayhints').toggle()<cr>", "Toggle Hints" },
-	i = { "<cmd>LspInfo<cr>", "Info" },
-	j = { "<cmd>lua vim.diagnostic.goto_next({buffer=0})<CR>", "Next Diagnostic", },
-	k = { "<cmd>lua vim.diagnostic.goto_prev({buffer=0})<cr>", "Prev Diagnostic", },
-	l = { "<cmd>lua vim.lsp.codelens.run()<cr>", "CodeLens Action" },
-	o = { "<cmd>SymbolsOutline<cr>", "Outline" },
-	q = { "<cmd>lua vim.lsp.diagnostic.set_loclist()<cr>", "Quickfix" },
-	r = { "<cmd>lua vim.lsp.buf.rename()<cr>", "Rename" },
-	s = { "<cmd>Telescope lsp_document_symbols<cr>", "Document Symbols" },
-	t = { '<cmd>lua require("user.functions").toggle_diagnostics()<cr>', "Toggle Diagnostics" },
-	u = { "<cmd>LuaSnipUnlinkCurrent<cr>", "Unlink Snippet" },
-	v = { "<cmd>lua require('lsp_lines').toggle()<cr>", "Virtual Text" },
-	w = { "<cmd>Telescope lsp_workspace_diagnostics<cr>", "Workspace Diagnostics", },
+	C = { "<Plug>(vimtex-clean-full)", "Full Clean" },
+	G = { "<Plug>(vimtex-status-all)", "Status All" },
+	I = { "<Plug>(vimtex-info-full)", "Info full" },
+	K = { "<Plug>(vimtex-stop-all)", "Stop all" },
+	L = { "<Plug>(vimtex-compile-selected)", "Compile selected file" },
+	T = { "<Plug>(vimtex-toc-toggle)", "Toggle TOC" },
+	X = { "<Plug>(vimtex-reload-state)", "Reload state" },
+	a = { "<Plug>(vimtex-context-menu)", "Context menu" },
+	c = { "<Plug>(vimtex-clean-full)", "Clean" },
+	e = { "<Plug>(vimtex-error)", "Errors" },
+	g = { "<Plug>(vimtex-status)", "Status" },
+	i = { "<Plug>(vimtex-info)", "Info" },
+	k = { "<Plug>(vimtex-stop)", "Stop" },
+	l = { "<Plug>(vimtex-compile)", "Compile" },
+	m = { "<Plug>(vimtex-impas-list)", "imaps list" },
+	o = { "<Plug>(vimtex-compile-output)", "Compile output" },
+	q = { "<Plug>(vimtex-log)", "Log" },
+	s = { "<Plug>(vimtex-toggle-main)", "Toggle Main" },
+	t = { "<Plug>(vimtex-toc_open)", "Open TOC" },
+	v = { "<Plug>(vimtex-view)", "View" },
+	x = { "<Plug>(vimtex-reload)", "Reload" },
 }
 
 -- ------------------------------------------------------------------------- }}}
