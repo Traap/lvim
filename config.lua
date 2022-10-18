@@ -1,7 +1,7 @@
 require "traap.plugins"
 require "traap.options"
 require "traap.alpha"
-require "traap.helpers"
+require "traap.utility"
 require "traap.keybindings"
 require "traap.colorize"
 require "traap.lsp"

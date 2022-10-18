@@ -1,6 +1,6 @@
 -- {{{ Leader and maplocalleader
 
-local keymap = require('traap.helpers').keymap
+local keymap = require('traap.utility').keymap
 
 
 lvim.leader = "space"
@@ -87,6 +87,6 @@ keymap('v', '<localleader>E', [["ky :exec "r!" getreg("k")<cr>]])
 -- ------------------------------------------------------------------------- }}}
 -- -- {{{ NvimTree
 
--- keymap('n', '<c-n>', '<cmd>NvimTreeToggle<cr>')
+keymap('n', '<c-n>', '<cmd>NvimTreeToggle<cr>')
 
 -- ------------------------------------------------------------------------- }}}
