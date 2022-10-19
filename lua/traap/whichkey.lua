@@ -233,27 +233,6 @@ local hv_mappings = {
 }
 
 -- ------------------------------------------------------------------------- }}}
--- {{{ ctrl-opts
-
-local ctrl_opts = {
-	mode = "n", -- NORMAL mode
-	prefix = nil,
-	buffer = nil, -- Global mappings. Specify a buffer number for buffer local mappings
-	silent = true, -- use `silent` when creating keymaps
-	noremap = true, -- use `noremap` when creating keymaps
-	nowait = true, -- use `nowait` when creating keymaps
-}
-
--- ------------------------------------------------------------------------- }}}
--- {{{ ctrl_mappings
-
-local ctrl_mappings = {
-	["c-g"] = {[[cmd>cd $GITHOME<cr>]], 'cd $GITHOME'},
-	["c-n"] = {[[NvimToggle<cr>]], 'Toggle NvimTree'},
-	["c-q"] = {[[cmd>qall!<cr>]], 'Quit now!'},
-}
-
--- ------------------------------------------------------------------------- }}}
 -- {{{ m_opts
 
 local m_opts = {
@@ -296,6 +275,5 @@ which_key.register(gn_mappings, gn_opts)
 which_key.register(gv_mappings, gv_opts)
 which_key.register(hn_mappings, hn_opts)
 which_key.register(hv_mappings, hv_opts)
-which_key.register(ctrl_mappings, ctrl_opts)
 
 -- ------------------------------------------------------------------------- }}}

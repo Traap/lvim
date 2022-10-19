@@ -2,7 +2,6 @@
 
 local keymap = require('traap.utility').keymap
 
-
 lvim.leader = "space"
 vim.g.maplocalleader = [[,]]
 
@@ -21,21 +20,8 @@ vim.cmd([[
 -- ------------------------------------------------------------------------- }}}
 -- {{{ General keybindings.
 
--- Ctrl-I
-keymap('n', '<C-i>', '<C-i>')
-
--- Move to $GITHOME
--- keymap('n', '<c-g>', '<cmd>cd $GITHOME<cr>')
-
--- Quit now
--- keymap('n', '<c-q>', '<cmd>qall!<cr>')
-
--- sxhkd filetype.
-keymap('n', '<c-s>', '<cmd>set filetype=sxhkd<cr>')
-
 -- Delete the current line.
 keymap('n', '-', 'dd')
-
 
 -- Select (charwise) the contents of the current line, excluding indentation.
 keymap('n', 'vv', '^vg_')
@@ -85,8 +71,12 @@ keymap('n', '<localleader>E', [[0mMvg_"ky :exec "r!" getreg("k")<cr>]])
 keymap('v', '<localleader>E', [["ky :exec "r!" getreg("k")<cr>]])
 
 -- ------------------------------------------------------------------------- }}}
--- -- {{{ NvimTree
+-- -- {{{ Control keys
 
+keymap('n', '<C-i>', '<C-i>')
+keymap('n', '<c-g>', '<cmd>cd $GITHOME<cr>')
 keymap('n', '<c-n>', '<cmd>NvimTreeToggle<cr>')
+keymap('n', '<c-q>', '<cmd>qall!<cr>')
+keymap('n', '<c-s>', '<cmd>set filetype=sxhkd<cr>')
 
 -- ------------------------------------------------------------------------- }}}
