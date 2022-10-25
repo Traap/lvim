@@ -15,7 +15,6 @@ lvim.builtin.illuminate.active = false
 lvim.builtin.indentlines.active = false
 
 -- lvim.builtin.lualine.style = "default"
-lvim.builtin.notify.active = true
 
 lvim.builtin.nvimtree.setup.renderer.icons.show.git = true
 lvim.builtin.nvimtree.setup.view.side = "right"
