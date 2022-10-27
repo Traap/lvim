@@ -11,6 +11,14 @@ lvim.builtin.which_key.mappings["q"] = { "<cmd>Bdelete!<CR>", "Close Buffer" }
 lvim.builtin.which_key.mappings["Q"] = { "<cmd>bufdo<cmd>Bdelete!<CR>", "Close Buffer" }
 
 -- ------------------------------------------------------------------------- }}}
+-- {{{ H - Help
+
+lvim.builtin.which_key.mappings["H"] = {
+  name = "Help",
+    H = { "<cmd>silent vert bo help<cr>", "Help in Vertical Split" },
+}
+
+  -- ------------------------------------------------------------------------- }}}
 -- {{{ L - LSP
 
 lvim.builtin.which_key.mappings["L"] = {
@@ -40,11 +48,32 @@ lvim.builtin.which_key.mappings["L"] = {
 }
 
 -- ------------------------------------------------------------------------- }}}
+-- {{{ P - Packer
+
+lvim.builtin.which_key.mappings["P"] = {
+  name = "Packer",
+  c = { "<cmd>PackerCompile<cr>", "Compile" },
+  i = { "<cmd>PackerInstall<cr>", "Install" },
+  s = { "<cmd>PackerSync<cr>", "Sync" },
+  S = { "<cmd>PackerStatus<cr>", "Status" },
+  u = { "<cmd>PackerUpdate<cr>", "Update" },
+}
+
+-- ------------------------------------------------------------------------- }}}
+-- {{{ V - Linewise reselection of what you just pasted.
+
+lvim.builtin.which_key.mappings["V"] = {
+  name = "Reselection",
+  V = { "V`]", "Pasted Block" },
+}
+
+-- ------------------------------------------------------------------------- }}}
 -- {{{ a - Alpha
 
 lvim.builtin.which_key.mappings["a"] = {
   name = "Alpha",
   a = { "<cmd>Alpha<cr>", "Display Alpha Page" },
+  r = { "<cmd>VtrReattachRunner<cr>", "Reattach runner" },
 }
 
   -- ------------------------------------------------------------------------- }}}
@@ -59,7 +88,17 @@ lvim.builtin.which_key.mappings["b"] = {
   x = { [[<cmd>w<cr><cmd>luafile %<cr><cmd>echo "Sourced " . @%<cr>]], "Reload lua file." },
 }
 
-  -- ------------------------------------------------------------------------- }}}
+-- ------------------------------------------------------------------------- }}}
+-- {{{ c - Copy & Paste
+
+lvim.builtin.which_key.mappings["c"] = {
+  name = "Copy & Paste",
+  c = { 'ggVGg_"+y', "Yank buffer" },
+  r = { "<cmd>VtrClearRunner<cr>", "Clear runner" },
+  v = { '"+p', "Paste buffer" },
+}
+
+-- ------------------------------------------------------------------------- }}}
 -- {{{ d - Debug
 
 lvim.builtin.which_key.mappings["d"] = {
@@ -80,20 +119,78 @@ lvim.builtin.which_key.mappings["d"] = {
 
 lvim.builtin.which_key.mappings["f"] = {
 	name = "Find",
-	C = { "<cmd>Telescope commands<cr>", "Commands" },
-	F = { "<cmd>lua require('telescope').extensions.media_files.media_files()<cr>", "Media" },
-	H = { "<cmd>Telescope highlights<cr>", "Highlights" },
-	M = { "<cmd>Telescope man_pages<cr>", "Man Pages" },
-	R = { "<cmd>Telescope registers<cr>", "Registers" },
-	b = { "<cmd>Telescope git_branches<cr>", "Checkout branch" },
-	c = { "<cmd>Telescope colorscheme<cr>", "Colorscheme" },
-	f = { "<cmd>Telescope find_files<cr>", "Find files" },
-	h = { "<cmd>Telescope help_tags<cr>", "Help" },
-	k = { "<cmd>Telescope keymaps<cr>", "Keymaps" },
-	l = { "<cmd>Telescope resume<cr>", "Last Search" },
-	r = { "<cmd>Telescope oldfiles<cr>", "Recent File" },
-	s = { "<cmd>Telescope grep_string<cr>", "Find String" },
-	t = { "<cmd>Telescope live_grep<cr>", "Find Text" },
+    C = { '<cmd>Telescope commands<cr>', 'Command' },
+    F = { '<cmd>Telescope media_files<cr>', 'Media files' },
+    M = { '<cmd>Telescope man_pages<cr>', 'Man Pages' },
+    O = { '<cmd>Telescope oldfiles<cr>', 'Recent File' },
+    R = { '<cmd>Telescope registers<cr>', 'Registers' },
+    S = { '<cmd>Telescope colorscheme<cr>', 'Colorscheme' },
+    b = { '<cmd>Telescope buffers<cr>', "Buffers" },
+    c = { "<cmd>VtrFlushCommand<cr>", "Flush runner" },
+    d = { '<cmd>Telescope diagnostics<cr>', 'Diagnostics' },
+    f = { '<cmd>Telescope find_files<cr>', "Find files" },
+    g = { '<cmd>Telescope live_grep<cr>', 'Find Text' },
+    h = { '<cmd>Telescope help_tags<cr>', "Help" },
+    i = { "<cmd>lua require('telescope').extensions.media_files.media_files()<cr>", 'Media' },
+    k = { '<cmd>Telescope keymaps<cr>', 'Keymaps' },
+    l = { '<cmd>Telescope resume<cr>', 'Last Search' },
+    o = { '<cmd>Telescope oldfiles<cr>', 'Old files' },
+    p = { '<cmd>Telescope find_files cwd=~/.local/share/nvim/site/pack/packer<cr>', '' },
+    r = { "<cmd>VtrFocusRunner<cr>", "Focus runner" },
+    v = { '<cmd>Telescope find_files cwd=~/git/nvim<cr>', 'NeoVim' },
+}
+-- ------------------------------------------------------------------------- }}}
+-- {{{ g - git
+
+lvim.builtin.which_key.mappings["g"] = {
+  name = "Git",
+  G = {
+    name = "Gist",
+    a = { "<cmd>Gist -b -a<cr>", "Create Anon" },
+    d = { "<cmd>Gist -d<cr>", "Delete" },
+    f = { "<cmd>Gist -f<cr>", "Fork" },
+    g = { "<cmd>Gist -b<cr>", "Create" },
+    l = { "<cmd>Gist -l<cr>", "List" },
+    p = { "<cmd>Gist -b -p<cr>", "Create Private" },
+  },
+
+  S = {
+    name = "Signs",
+    R = { "<cmd>lua require 'gitsigns'.reset_hunk()<cr>", "Reset Hunk" },
+    S = { "<cmd>lua require 'gitsigns'.stage_hunk()<cr>", "Stage Hunk" },
+    d = { "<cmd>Gitsigns diffthis HEAD<cr>", "Diff", },
+    h = { "<cmd>lua require 'gitsigns'.undo_stage_hunk()<cr>", "Undo Stage Hunk", },
+    j = { "<cmd>lua require 'gitsigns'.next_hunk()<cr>", "Next Hunk" },
+    k = { "<cmd>lua require 'gitsigns'.prev_hunk()<cr>", "Prev Hunk" },
+    p = { "<cmd>lua require 'gitsigns'.preview_hunk()<cr>", "Preview Hunk" },
+    r = { "<cmd>lua require 'gitsigns'.reset_buffer()<cr>", "Reset Buffer" },
+  },
+
+  T = {
+    name = "Telescope",
+    b = { "<cmd>Telescope git_branches<cr>", "Checkout branch" },
+    c = { "<cmd>Telescope git_commits<cr>", "Checkout commit" },
+    o = { "<cmd>Telescope git_status<cr>", "Open changed file" },
+  },
+
+  P = { "<cmd>G pull<cr>", "pull" },
+  c = { "<cmd>G commit<cr>", "Commit" },
+  d = { "<cmd>G diff<cr>", "Diff" },
+  h = { "<cmd>vert bo help fugitive<cr>", "Help" },
+  l = { "<cmd>G log<cr>", "Log" },
+  p = { "<cmd>G push<cr>", "push" },
+  s = { "<cmd>G<cr>", "Status>" },
+  u = { "<cmd>call GenerateUmlDiagram()<cr>", "Status" },
+}
+
+-- ------------------------------------------------------------------------- }}}
+-- {{{ k - KJV
+
+lvim.builtin.which_key.mappings["k"] = {
+  name = "KJV",
+  k = { [[^"kyg$<cmd>exec 'r!kjv -b -d -w 65' getreg('k')<cr>]], "Get Verse" },
+  f = { [[<cmd>v)3><cr>]], "Format Verse" },
+  r = { "<cmd>VtrKillRunner<cr>", "Kill runner" },
 }
 
 -- ------------------------------------------------------------------------- }}}
