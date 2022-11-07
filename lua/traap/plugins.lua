@@ -40,6 +40,7 @@ lvim.plugins = {
   "vim-utils/vim-most-minimal-folds",
   "xiyaowong/nvim-transparent",
   "RRethy/nvim-base16",
+  "ThePrimeagen/harpoon",
   "Traap/vim-bundle-abbreviate",
   "Traap/vim-bundle-autocmd",
   "Traap/vim-bundle-fzf",
