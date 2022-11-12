@@ -5,7 +5,7 @@
 -- ------------------------------------------------------------------------- }}}
 -- {{{ Use protected call so we don't error on first use.
 
-local  ok, alpha = pcall(require, "alpha")
+local  ok, _ = pcall(require, "alpha")
 if not ok then return end
 
 -- ------------------------------------------------------------------------- }}}
