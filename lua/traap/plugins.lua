@@ -1,4 +1,5 @@
 -- {{{ Plugins
+
 lvim.plugins = {
   "NvChad/nvim-colorizer.lua",
   "aklt/plantuml-syntax",
