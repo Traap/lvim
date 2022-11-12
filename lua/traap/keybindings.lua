@@ -73,7 +73,6 @@ keymap('v', '<localleader>E', [["ky :exec "r!" getreg("k")<cr>]])
 -- ------------------------------------------------------------------------- }}}
 -- -- {{{ Control keys
 
-keymap('n', '<C-i>', '<C-i>')
 keymap('n', '<c-g>', '<cmd>cd $GITHOME<cr>')
 keymap('n', '<c-n>', '<cmd>NvimTreeToggle<cr>')
 keymap('n', '<c-q>', '<cmd>qall!<cr>')
