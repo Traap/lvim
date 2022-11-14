@@ -343,10 +343,10 @@ lvim.builtin.which_key.mappings["w"] = {
 -- ------------------------------------------------------------------------- }}}
 -- {{{ Disable lvim builtin which_keys.
 
-lvim.builtin.which_key.mappings[";"] = nil
-lvim.builtin.which_key.mappings["c"] = nil
-lvim.builtin.which_key.mappings["L"] = nil
-lvim.builtin.which_key.mappings["s"] = nil
+-- lvim.builtin.which_key.mappings[";"] = nil
+-- lvim.builtin.which_key.mappings["c"] = nil
+-- lvim.builtin.which_key.mappings["L"] = nil
+-- lvim.builtin.which_key.mappings["s"] = nil
 
 -- ------------------------------------------------------------------------- }}}
 -- {{{ Load which_key.
