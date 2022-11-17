@@ -40,10 +40,12 @@ local options = {
   foldlevel = 20,
   foldmethod = "marker",
   lazyredraw = true,
+  listchars = { eol = '↲', tab = '▸ ', trail = '·' },
   relativenumber = true,
   showbreak = "↪",
   showtabline = 0,
   textwidth = 80,
+  virtualedit = { 'block' },
   wrap = false,
   whichwrap = "",
 }
