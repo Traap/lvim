@@ -6,7 +6,6 @@
 -- ------------------------------------------------------------------------- }}}
 -- {{{ Enable or disable lvim options.
 
-
 lvim.builtin.alpha.active = true
 lvim.builtin.alpha.mode = "dashboard"
 lvim.builtin.breadcrumbs.active = true
@@ -34,6 +33,7 @@ lvim.transparent_window = true
 
 local options = {
   cmdheight = 1,
+  colorcolumn = '+1',
   cursorline = false,
   expandtab = true,
   fillchars = "fold: ",
