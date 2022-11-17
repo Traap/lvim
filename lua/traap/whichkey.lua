@@ -1,6 +1,5 @@
 -- {{{ leader + 1 key.
 
-lvim.builtin.which_key.mappings["b"] = { "<cmd>Telescope buffers<cr>", "Buffers" }
 lvim.builtin.which_key.mappings["v"] = { "<cmd>vsplit<cr>", "vsplit" }
 lvim.builtin.which_key.mappings[" "] = { "<cmd>nohlsearch<cr>", "nohl" }
 lvim.builtin.which_key.mappings["w"] = { "<cmd>w<CR>", "Write" }
