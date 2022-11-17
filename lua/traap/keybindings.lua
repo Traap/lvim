@@ -29,6 +29,7 @@ keymap('n', 'vv', '^vg_')
 -- Select entire buffer
 keymap('n', 'vaa', 'ggvGg_')
 keymap('n', 'Vaa', 'ggVG')
+keymap('n', '<leader>V', "V`]")
 
 -- Save all files.
 keymap('n', '<F2>', '<cmd>wall<cr>')
@@ -36,8 +37,15 @@ keymap('n', '<F2>', '<cmd>wall<cr>')
 -- Delete current buffer.
 keymap('n', 'Q', '<cmd>Bdelete!<cr>')
 
--- Something Chris@Machine is doing?
-keymap('n', '_', [[<cmd>lua require'ilr.float'.toggle()<cr>]])
+-- Toggle [in]visible characters.
+keymap('n', '<leader>i', '<cmd>set list!<cr>')
+
+-- Stay in indent mode.
+keymap('v', '<', '<gv')
+keymap('v', '>', '>gv')
+
+-- Visual yank
+keymap('v', '<leader>cc', '"+y')
 
 -- ------------------------------------------------------------------------- }}}
 -- {{{ Folding commands.
@@ -53,15 +61,6 @@ keymap('n', 'zj', 'zcjzOzz')
 
 -- Close current fold when open. Always open previous fold.
 keymap('n', 'zk', 'zckzOzz')
-
--- ------------------------------------------------------------------------- }}}
--- {{{ Copy and Paste
-
--- Visual yank
-keymap('v', '<localleader>cc', [["+y]])
-keymap('n', '<localleader>cc', [[ggVGg_"+y]])
-
-keymap('n', '<localleader>cv', [[s"+p]])
 
 -- ------------------------------------------------------------------------- }}}
 -- {{{ Shell commands.
