@@ -1,4 +1,4 @@
--- {{{ leader + 1 key.
+-- {{{ leader + 1 key
 
 lvim.builtin.which_key.mappings["v"] = { "<cmd>vsplit<cr>", "vsplit" }
 lvim.builtin.which_key.mappings[" "] = { "<cmd>nohlsearch<cr>", "nohl" }
@@ -10,6 +10,19 @@ lvim.builtin.which_key.mappings["q"] = { "<cmd>Bdelete!<CR>", "Close Buffer" }
 lvim.builtin.which_key.mappings["Q"] = { "<cmd>bufdo<cmd>Bdelete!<CR>", "Close Buffer" }
 
 -- ------------------------------------------------------------------------- }}}
+-- {{{ G - Gist
+
+lvim.builtin.which_key.mappings["G"] = {
+  name = "Gist",
+  a = { "<cmd>Gist -b -a<cr>", "Create Anon" },
+  d = { "<cmd>Gist -d<cr>", "Delete" },
+  f = { "<cmd>Gist -f<cr>", "Fork" },
+  g = { "<cmd>Gist -b<cr>", "Create" },
+  l = { "<cmd>Gist -l<cr>", "List" },
+  p = { "<cmd>Gist -b -p<cr>", "Create Private" },
+}
+
+  -- ------------------------------------------------------------------------- }}}
 -- {{{ H - Help
 
 lvim.builtin.which_key.mappings["H"] = {
@@ -59,11 +72,44 @@ lvim.builtin.which_key.mappings["P"] = {
 }
 
 -- ------------------------------------------------------------------------- }}}
--- {{{ V - Linewise reselection of what you just pasted.
+-- {{{ V - Linewise reselection of what you just pasted
 
 lvim.builtin.which_key.mappings["V"] = {
   name = "Reselection",
   V = { "V`]", "Pasted Block" },
+}
+
+-- ------------------------------------------------------------------------- }}}
+-- {{{ S - Gitsigns
+
+lvim.builtin.which_key.mappings["S"] = {
+  name = "Signs",
+  R = { "<cmd>lua require 'gitsigns'.reset_hunk()<cr>", "Reset Hunk" },
+  S = { "<cmd>lua require 'gitsigns'.stage_hunk()<cr>", "Stage Hunk" },
+  d = { "<cmd>Gitsigns diffthis HEAD<cr>", "Diff", },
+  h = { "<cmd>lua require 'gitsigns'.undo_stage_hunk()<cr>", "Undo Stage Hunk", },
+  j = { "<cmd>lua require 'gitsigns'.next_hunk()<cr>", "Next Hunk" },
+  k = { "<cmd>lua require 'gitsigns'.prev_hunk()<cr>", "Prev Hunk" },
+  p = { "<cmd>lua require 'gitsigns'.preview_hunk()<cr>", "Preview Hunk" },
+  r = { "<cmd>lua require 'gitsigns'.reset_buffer()<cr>", "Reset Buffer" },
+}
+
+-- ------------------------------------------------------------------------- }}}
+-- {{{ T - Terminal
+
+lvim.builtin.which_key.mappings["T"] = {
+  name = "Terminal",
+  ["1"] = { ":1ToggleTerm<cr>", "1" },
+  ["2"] = { ":2ToggleTerm<cr>", "2" },
+  ["3"] = { ":3ToggleTerm<cr>", "3" },
+  ["4"] = { ":4ToggleTerm<cr>", "4" },
+  f = { "<cmd>ToggleTerm direction=float<cr>", "Float" },
+  h = { "<cmd>ToggleTerm size=10 direction=horizontal<cr>", "Horizontal" },
+  n = { "<cmd>lua _NODE_TOGGLE()<cr>", "Node" },
+  p = { "<cmd>lua _PYTHON_TOGGLE()<cr>", "Python" },
+  t = { "<cmd>lua _HTOP_TOGGLE()<cr>", "Htop" },
+  u = { "<cmd>lua _NCDU_TOGGLE()<cr>", "NCDU" },
+  v = { "<cmd>ToggleTerm size=80 direction=vertical<cr>", "Vertical" },
 }
 
 -- ------------------------------------------------------------------------- }}}
@@ -143,40 +189,14 @@ lvim.builtin.which_key.mappings["f"] = {
 
 lvim.builtin.which_key.mappings["g"] = {
   name = "Git",
-  G = {
-    name = "Gist",
-    a = { "<cmd>Gist -b -a<cr>", "Create Anon" },
-    d = { "<cmd>Gist -d<cr>", "Delete" },
-    f = { "<cmd>Gist -f<cr>", "Fork" },
-    g = { "<cmd>Gist -b<cr>", "Create" },
-    l = { "<cmd>Gist -l<cr>", "List" },
-    p = { "<cmd>Gist -b -p<cr>", "Create Private" },
-  },
-
-  S = {
-    name = "Signs",
-    R = { "<cmd>lua require 'gitsigns'.reset_hunk()<cr>", "Reset Hunk" },
-    S = { "<cmd>lua require 'gitsigns'.stage_hunk()<cr>", "Stage Hunk" },
-    d = { "<cmd>Gitsigns diffthis HEAD<cr>", "Diff", },
-    h = { "<cmd>lua require 'gitsigns'.undo_stage_hunk()<cr>", "Undo Stage Hunk", },
-    j = { "<cmd>lua require 'gitsigns'.next_hunk()<cr>", "Next Hunk" },
-    k = { "<cmd>lua require 'gitsigns'.prev_hunk()<cr>", "Prev Hunk" },
-    p = { "<cmd>lua require 'gitsigns'.preview_hunk()<cr>", "Preview Hunk" },
-    r = { "<cmd>lua require 'gitsigns'.reset_buffer()<cr>", "Reset Buffer" },
-  },
-
-  T = {
-    name = "Telescope",
-    b = { "<cmd>Telescope git_branches<cr>", "Checkout branch" },
-    c = { "<cmd>Telescope git_commits<cr>", "Checkout commit" },
-    o = { "<cmd>Telescope git_status<cr>", "Open changed file" },
-  },
-
+  C = { "<cmd>Telescope git_commits<cr>", "Checkout commit" },
   P = { "<cmd>G pull<cr>", "pull" },
+  b = { "<cmd>Telescope git_branches<cr>", "Checkout branch" },
   c = { "<cmd>G commit<cr>", "Commit" },
   d = { "<cmd>G diff<cr>", "Diff" },
   h = { "<cmd>vert bo help fugitive<cr>", "Help" },
   l = { "<cmd>G log<cr>", "Log" },
+  o = { "<cmd>Telescope git_status<cr>", "Open changed file" },
   p = { "<cmd>G push<cr>", "push" },
   s = { "<cmd>G<cr>", "Status>" },
   u = { "<cmd>call GenerateUmlDiagram()<cr>", "Status" },
@@ -268,59 +288,18 @@ lvim.builtin.which_key.mappings["s"] = {
 -- {{{ t - Terminal & Tmux
 
 lvim.builtin.which_key.mappings["t"] = {
-  name = "Terminal & Tmux",
-
-  c = {
-    name = "Start Tmux",
-    a = { '<cmd>Dispatch!ao ao<cr>', 'AO' },
-    b = { '<cmd>Dispatch!ao bash<cr>', 'Bash' },
-    k = { '<cmd>Dispatch!ao kjv<cr>', 'KJV' },
-    s = { '<cmd>Dispatch!ao ssh<cr>', 'Ssh' },
-    p = { '<cmd>Dispatch!ao soup<cr>', 'Soup' },
-    v = { '<cmd>Dispatch!ao vim<cr>', 'Vim' },
-    w = { '<cmd>Dispatch!ao wiki<cr>', 'Wiki' },
-  },
-
-  k = {
-    name = "Kill Tmux",
-    a = { '<cmd>Dispatch!tmux kill-session -t ao<cr>', 'AO' },
-    b = { '<cmd>Dispatch!tmux kill-session -t bash<cr>', 'Bash' },
-    k = { '<cmd>Dispatch!tmux kill-session -t kjv<cr>', 'KJV' },
-    s = { '<cmd>Dispatch!tmux kill-session -t ssh<cr>', 'Ssh' },
-    p = { '<cmd>Dispatch!tmux kill-session -t soup<cr>', 'Soup' },
-    v = { '<cmd>Dispatch!tmux kill-session -t vim<cr>', 'Vim' },
-    w = { '<cmd>Dispatch!tmux kill-session -t wiki<cr>', 'Wiki' },
-  },
-
-  r = {
-    name = 'Runner',
-    F = { '<cmd>VtrFocusRunner<cr>', 'Focus Runner' },
-    O = { '<cmd>VtrReorientRunner<cr>', 'Reorient Runner' },
-    R = { '<cmd>VtrResizeRunner<cr>', 'Resize Runner' },
-    S = { '<cmd>VtrSendFile!<cr>', 'Send File' },
-    a = { '<cmd>VtrReattachRunner<cr>', 'Reattah Runner' },
-    c = { '<cmd>VtrClearRunner<cr>', 'Clear Runner' },
-    f = { '<cmd>VtrFlushCommand<cr>', 'Flush Runner' },
-    k = { '<cmd>VtrKillRunner<cr>', 'Kill Runner' },
-    l = { '<cmd>VtrSendLinesToRunner<cr>', 'Sent Lines' },
-    o = { "<cmd>VtrOpenRunner {'orientation': 'h', 'percentage': 50}<cr>", 'Open Runner' },
-    s = { '<cmd>VtrSendCommandToRunner<cr>', 'Send Command' },
-  },
-
-  T = {
-    name = "Terminal",
-    ["1"] = { ":1ToggleTerm<cr>", "1" },
-    ["2"] = { ":2ToggleTerm<cr>", "2" },
-    ["3"] = { ":3ToggleTerm<cr>", "3" },
-    ["4"] = { ":4ToggleTerm<cr>", "4" },
-    f = { "<cmd>ToggleTerm direction=float<cr>", "Float" },
-    h = { "<cmd>ToggleTerm size=10 direction=horizontal<cr>", "Horizontal" },
-    n = { "<cmd>lua _NODE_TOGGLE()<cr>", "Node" },
-    p = { "<cmd>lua _PYTHON_TOGGLE()<cr>", "Python" },
-    t = { "<cmd>lua _HTOP_TOGGLE()<cr>", "Htop" },
-    u = { "<cmd>lua _NCDU_TOGGLE()<cr>", "NCDU" },
-    v = { "<cmd>ToggleTerm size=80 direction=vertical<cr>", "Vertical" },
-  },
+  name = "Tmux",
+  F = { '<cmd>VtrFocusRunner<cr>', 'Focus Runner' },
+  O = { '<cmd>VtrReorientRunner<cr>', 'Reorient Runner' },
+  R = { '<cmd>VtrResizeRunner<cr>', 'Resize Runner' },
+  S = { '<cmd>VtrSendFile!<cr>', 'Send File' },
+  a = { '<cmd>VtrReattachRunner<cr>', 'Reattah Runner' },
+  c = { '<cmd>VtrClearRunner<cr>', 'Clear Runner' },
+  f = { '<cmd>VtrFlushCommand<cr>', 'Flush Runner' },
+  k = { '<cmd>VtrKillRunner<cr>', 'Kill Runner' },
+  l = { '<cmd>VtrSendLinesToRunner<cr>', 'Sent Lines' },
+  o = { "<cmd>VtrOpenRunner {'orientation': 'h', 'percentage': 50}<cr>", 'Open Runner' },
+  s = { '<cmd>VtrSendCommandToRunner<cr>', 'Send Command' },
 }
 
 -- ------------------------------------------------------------------------- }}}
@@ -435,24 +414,12 @@ local m_opts = {
 -- {{{ m_mappings
 
 local m_mappings = {
-  a = { "<cmd>silent BookmarkAnnotate<cr>", "Annotate" },
-  c = { "<cmd>silent BookmarkClear<cr>", "Clear" },
-  b = { "<cmd>silent BookmarkToggle<cr>", "Toggle" },
-  v = { '<cmd>lua require("harpoon.ui").toggle_quick_menu()<cr>', "Harpoon" },
-  m = { '<cmd>lua require("harpoon.mark").add_file()<cr>', "Harpoon" },
-  ["."] = { '<cmd>lua require("harpoon.ui").nav_next()<cr>', "Harpoon Next" },
   [","] = { '<cmd>lua require("harpoon.ui").nav_prev()<cr>', "Harpoon Prev" },
-  l = { "<cmd>lua require('user.bfs').open()<cr>", "Buffers" },
-  j = { "<cmd>silent BookmarkNext<cr>", "Next" },
-  s = { "<cmd>Telescope harpoon marks<cr>", "Search Files" },
-  k = { "<cmd>silent BookmarkPrev<cr>", "Prev" },
-  S = { "<cmd>silent BookmarkShowAll<cr>", "Prev" },
-  -- s = {
-  --   "<cmd>lua require('telescope').extensions.vim_bookmarks.all({ hide_filename=false, prompt_title=\"bookmarks\", shorten_path=false })<cr>",
-  --   "Show",
-  -- },
-  x = { "<cmd>BookmarkClearAll<cr>", "Clear All" },
+  ["."] = { '<cmd>lua require("harpoon.ui").nav_next()<cr>', "Harpoon Next" },
   [";"] = { '<cmd>lua require("harpoon.ui").toggle_quick_menu()<cr>', "Harpoon UI" },
+  m = { '<cmd>lua require("harpoon.mark").add_file()<cr>', "Harpoon" },
+  s = { "<cmd>Telescope harpoon marks<cr>", "Search Files" },
+  v = { '<cmd>lua require("harpoon.ui").toggle_quick_menu()<cr>', "Harpoon" },
 }
 
 -- ------------------------------------------------------------------------- }}}
