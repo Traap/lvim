@@ -146,6 +146,7 @@ lvim.builtin.which_key.mappings["c"] = {
 -- ------------------------------------------------------------------------- }}}
 -- {{{ d - Debug
 
+lvim.builtin.which_key.mappings["d"] = nil
 lvim.builtin.which_key.mappings["d"] = {
   name = "Debug",
   O = { "<cmd>lua require'dap'.step_out()<cr>", "Out" },

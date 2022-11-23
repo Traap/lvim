@@ -10,10 +10,9 @@ lvim.builtin.alpha.active = true
 lvim.builtin.alpha.mode = "dashboard"
 lvim.builtin.breadcrumbs.active = true
 lvim.builtin.bufferline.active = false
+lvim.builtin.dap.active = true
 lvim.builtin.illuminate.active = false
 lvim.builtin.indentlines.active = false
-
--- lvim.builtin.lualine.style = "default"
 
 lvim.builtin.nvimtree.setup.renderer.icons.show.git = true
 lvim.builtin.nvimtree.setup.view.side = "right"
@@ -21,6 +20,14 @@ lvim.builtin.nvimtree.setup.view.side = "right"
 lvim.builtin.project.active = false
 lvim.builtin.tabnine = { active = false }
 lvim.builtin.terminal.active = false
+lvim.builtin.treesitter.highlight.enable = true
+
+lvim.builtin.cmp.cmdline.enable =  true
+lvim.builtin.cmp.window.documentation = true
+lvim.builtin.cmp.window.completion = {
+  border = "rounded",
+  winhighlight = "NormalFloat:Pmenu,NormalFloat:Pmenu,CursorLine:PmenuSel,Search:None",
+}
 
 lvim.format_on_save = false
 lvim.log.level = "warn"
