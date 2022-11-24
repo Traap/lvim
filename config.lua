@@ -1,5 +1,5 @@
 -- Initial configuration.
-require 'traap.utility'
+require 'traap.functions'
 require 'traap.options'
 require 'traap.plugins'
 

@@ -1,6 +1,6 @@
 -- {{{ Leader and maplocalleader
 
-local keymap = require('traap.utility').keymap
+local keymap = require('traap.functions').keymap
 
 lvim.leader = "space"
 vim.g.maplocalleader = [[,]]
