@@ -20,6 +20,7 @@ lvim.plugins = {
   'lunarvim/colorschemes',
   'mechatroner/rainbow_csv',
   'moll/vim-bbye',
+  'olexsmir/gopher.nvim',
   'tpope/gem-browse',
   'tpope/vim-bundler',
   'tpope/vim-characterize',
@@ -51,8 +52,10 @@ lvim.plugins = {
   'Traap/vim-bundle-vimtex',
   'Traap/vim-bundle-vimwiki',
   -- dap
+  "jose-elias-alvarez/typescript.nvim",
+  "mfussenegger/nvim-dap-python",
+  "mxsdev/nvim-dap-vscode-js",
   'leoluz/nvim-dap-go',
   'theHamsta/nvim-dap-virtual-text',
 }
-
 -- ------------------------------------------------------------------------- }}}
