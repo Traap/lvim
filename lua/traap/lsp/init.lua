@@ -1,7 +1,8 @@
-require 'traap.lsp.languages.rust'
 require 'traap.lsp.languages.go'
-require 'traap.lsp.languages.python'
 require 'traap.lsp.languages.js-ts'
+require 'traap.lsp.languages.python'
+require 'traap.lsp.languages.ruby'
+require 'traap.lsp.languages.rust'
 require 'traap.lsp.languages.sh'
 
 lvim.lsp.diagnostics.virtual_text = true
