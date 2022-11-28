@@ -1,5 +1,5 @@
 require 'traap.lsp.languages.go'
-require 'traap.lsp.languages.csharp'
+require 'traap.lsp.languages.cs'
 require 'traap.lsp.languages.js-ts'
 require 'traap.lsp.languages.python'
 require 'traap.lsp.languages.ruby'
