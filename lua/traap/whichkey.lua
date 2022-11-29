@@ -60,18 +60,6 @@ lvim.builtin.which_key.mappings["L"] = {
 }
 
 -- ------------------------------------------------------------------------- }}}
--- {{{ P - Packer
-
-lvim.builtin.which_key.mappings["P"] = {
-  name = "Packer",
-  c = { "<cmd>PackerCompile<cr>", "Compile" },
-  i = { "<cmd>PackerInstall<cr>", "Install" },
-  s = { "<cmd>PackerSync<cr>", "Sync" },
-  S = { "<cmd>PackerStatus<cr>", "Status" },
-  u = { "<cmd>PackerUpdate<cr>", "Update" },
-}
-
--- ------------------------------------------------------------------------- }}}
 -- {{{ V - Linewise reselection of what you just pasted
 
 lvim.builtin.which_key.mappings["V"] = {
