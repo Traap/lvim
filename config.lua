@@ -12,6 +12,7 @@ require 'traap.colorize'
 require 'traap.lightbulb'
 require 'traap.lsp'
 require 'traap.surround'
+require 'traap.telescope'
 require 'traap.transparent'
 require 'traap.treesitter'
 
