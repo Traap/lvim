@@ -126,3 +126,18 @@ lvim.builtin.telescope.defaults.mappings = {
 }
 
 -- ------------------------------------------------------------------------- }}}
+-- {{{ Telescope extensions
+
+
+local  ok, telescope = pcall(require, 'telescope')
+if not ok then return end
+
+local extensions = {
+  'fzf',
+  'media_files',
+}
+
+for _, name in ipairs(extensions) do
+  telescope.load_extension(name)
+end
+-- ------------------------------------------------------------------------- }}}

@@ -20,7 +20,23 @@ lvim.plugins = {
   'lunarvim/colorschemes',
   'mechatroner/rainbow_csv',
   'moll/vim-bbye',
+  'nvim-telescope/telescope-media-files.nvim',
   'olexsmir/gopher.nvim',
+  -- 'renerocksai/calendar-vim',
+  -- {
+  --   'saecki/crates.nvim',
+  --   tag = 'v0.3.0',
+  --   requires = { 'nvim-lua/plenary.nvim' },
+  --   config = function()
+  --     require('crates').setup {
+  --       null_ls = {
+  --         enabled = true,
+  --         name = 'crates.nvim',
+  --       },
+  --     }
+  --   end,
+  -- },
+  -- 'renerocksai/telekasten.nvim',
   'tpope/gem-browse',
   'tpope/vim-bundler',
   'tpope/vim-characterize',
@@ -32,8 +48,8 @@ lvim.plugins = {
   'tpope/vim-projectionist',
   'tpope/vim-rails',
   'tpope/vim-rake',
-  'tpope/vim-repeat',
   'tpope/vim-rbenv',
+  'tpope/vim-repeat',
   -- 'tpope/vim-surround',
   'tpope/vim-unimpaired',
   'tpope/vim-vinegar',
@@ -52,9 +68,9 @@ lvim.plugins = {
   'Traap/vim-bundle-vimtex',
   'Traap/vim-bundle-vimwiki',
   -- dap
-  "jose-elias-alvarez/typescript.nvim",
-  "mfussenegger/nvim-dap-python",
-  "mxsdev/nvim-dap-vscode-js",
+  'jose-elias-alvarez/typescript.nvim',
+  'mfussenegger/nvim-dap-python',
+  'mxsdev/nvim-dap-vscode-js',
   'leoluz/nvim-dap-go',
   'theHamsta/nvim-dap-virtual-text',
 }
