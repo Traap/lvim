@@ -34,6 +34,9 @@ keymap('n', '<leader>V', "V`]")
 -- Save all files.
 keymap('n', '<F2>', '<cmd>wall<cr>')
 
+-- Rot13 Buffer
+keymap('n', '<F3>', 'ggg?G')
+
 -- Delete current buffer.
 keymap('n', 'Q', '<cmd>Bdelete!<cr>')
 
