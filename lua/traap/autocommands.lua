@@ -7,3 +7,16 @@ vim.api.nvim_create_autocmd({ "BufEnter", "ColorScheme" },{
     ]]
   end
 })
+
+-- vim.api.nvim_create_autocmd({ 'Bufread', 'BufNewFile' }, {
+--   pattern = {
+--     'md',
+--     'markdown',
+--     'wiki',
+--   },
+--   callback = function()
+--     vim.opt.foldlevelstart = 2
+--     vim.opt.filetype='wiki'
+--     vim.cmd [[ :WikiEnable ]]
+--   end
+-- })

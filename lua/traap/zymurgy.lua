@@ -18,19 +18,3 @@ if nui then
 end
 
 -- ------------------------------------------------------------------------- }}}
--- {{{ autocmd experiements.
-
--- vim.api.nvim_create_autocmd({ 'FileType' }, {
---   pattern = {
---     'md',
---     'markdown',
---     'wiki',
---   },
---   callback = function()
---     vim.opt.foldlevelstart = 2
---     vim.opt.filetype='wiki'
---     vim.cmd [[ :WikiEnable ]]
---   end
--- })
-
--- ------------------------------------------------------------------------- }}}

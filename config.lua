@@ -1,11 +1,11 @@
 -- Initial configuration.
 require 'traap.functions'
 require 'traap.options'
+require 'traap.autocommands'
 require 'traap.plugins'
 
 -- Personalize neovim.
 require 'traap.alpha'
-require 'traap.autocommands'
 require 'traap.autopairs'
 require 'traap.clipboard'
 require 'traap.colorize'
