@@ -17,7 +17,7 @@ lvim.builtin.indentlines.active = false
 lvim.builtin.nvimtree.setup.renderer.icons.show.git = true
 lvim.builtin.nvimtree.setup.view.side = "right"
 
-lvim.builtin.project.active = false
+lvim.builtin.project.active = true
 lvim.builtin.tabnine = { active = false }
 lvim.builtin.terminal.active = false
 lvim.builtin.treesitter.highlight.enable = true
