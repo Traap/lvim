@@ -244,8 +244,8 @@ local vmappings = {
 	},
 }
 
-local opts = require('traap.constants').normal_opts
-local vopts = require('traap.constants').visual_opts
+local opts = require('traap.core.constants').normal_opts
+local vopts = require('traap.coare.constants').visual_opts
 
 which_key.register(mappings, opts)
 which_key.register(vmappings, vopts)
