@@ -179,7 +179,6 @@ lvim.builtin.which_key.mappings["g"] = {
 
 lvim.builtin.which_key.mappings["k"] = {
   name = "Tmux",
-  k = { [[^"kyg$<cmd>exec 'r!kjv -b -d -w 65' getreg('k')<cr>]], "Get Verse" },
   f = { [[<cmd>v)3><cr>]], "Format Verse" },
   r = { "<cmd>VtrKillRunner<cr>", "Kill runner" },
 }
