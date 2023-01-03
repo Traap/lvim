@@ -6,22 +6,21 @@
 -- ------------------------------------------------------------------------- }}}
 -- {{{ Enable or disable lvim options.
 
-lvim.builtin.alpha.active = true
-lvim.builtin.alpha.mode = "dashboard"
+lvim.builtin.alpha.active = false
+lvim.builtin.alpha.dashboard.active = false
 lvim.builtin.breadcrumbs.active = true
 lvim.builtin.bufferline.active = false
 lvim.builtin.dap.active = true
 lvim.builtin.illuminate.active = false
 lvim.builtin.indentlines.active = false
-
 lvim.builtin.nvimtree.setup.renderer.icons.show.git = true
 lvim.builtin.nvimtree.setup.view.side = "right"
-
 lvim.builtin.project.active = true
 lvim.builtin.tabnine = { active = false }
 lvim.builtin.terminal.active = false
 lvim.builtin.treesitter.highlight.enable = true
 
+lvim.builtin.which_key.active = false
 lvim.builtin.cmp.cmdline.enable =  true
 lvim.builtin.cmp.window.documentation = true
 lvim.builtin.cmp.window.completion = {
@@ -29,11 +28,13 @@ lvim.builtin.cmp.window.completion = {
   winhighlight = "NormalFloat:Pmenu,NormalFloat:Pmenu,CursorLine:PmenuSel,Search:None",
 }
 
+
 lvim.format_on_save = false
 lvim.log.level = "warn"
 
 lvim.colorscheme = "base16-tokyo-night-terminal-storm"
 lvim.transparent_window = true
+
 
 -- ------------------------------------------------------------------------- }}}
 -- {{{ My options.
