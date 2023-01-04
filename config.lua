@@ -4,13 +4,13 @@ require 'traap.core.options'
 require 'traap.core.plugins'
 
 -- Personalize neovim.
-require 'traap.packer.autopairs'
-require 'traap.packer.colorize'
-require 'traap.packer.lightbulb'
-require 'traap.packer.surround'
-require 'traap.packer.telescope'
-require 'traap.packer.transparent'
-require 'traap.packer.treesitter'
+require 'traap.plugins.autopairs'
+require 'traap.plugins.colorize'
+require 'traap.plugins.lightbulb'
+require 'traap.plugins.surround'
+require 'traap.plugins.telescope'
+require 'traap.plugins.transparent'
+require 'traap.plugins.treesitter'
 
 -- Lsp
 require 'traap.lsp'
