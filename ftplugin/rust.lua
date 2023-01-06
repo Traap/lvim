@@ -1,6 +1,7 @@
 local  ok, which_key = pcall(require, "which-key")
 if not ok then return end
 
+local keymap = require('traap.core.functions').keymap_buffer
 local mappings = {
   C = {
     name = "Rust",
