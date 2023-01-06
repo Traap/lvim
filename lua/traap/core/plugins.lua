@@ -44,7 +44,6 @@ lvim.plugins = {
   'xiyaowong/nvim-transparent',
   'ChristianChiarulli/nvim-ts-rainbow',
   'RRethy/nvim-base16',
-  'RRethy/nvim-base16',
   'ThePrimeagen/harpoon',
   'Traap/vim-bundle-abbreviate',
   'Traap/vim-bundle-fzf',
