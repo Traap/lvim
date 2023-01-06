@@ -1,25 +1,13 @@
-local  ok, which_key = pcall(require, "which-key")
-if not ok then return end
-
 local keymap = require('traap.core.functions').keymap_buffer
-local mappings = {
-  C = {
-    name = "Rust",
-    r = { "<cmd>RustRunnables<Cr>",        "Runnables" },
-    t = { "<cmd>lua _CARGO_TEST()<cr>",    "Cargo Test" },
-    m = { "<cmd>RustExpandMacro<Cr>",      "Expand Macro" },
-    c = { "<cmd>RustOpenCargo<Cr>",        "Open Cargo" },
-    D = { "<cmd>RustOpenExternalDocs<Cr>", "Open Docs" },
-    p = { "<cmd>RustParentModule<Cr>",     "Parent Module" },
-    d = { "<cmd>RustDebuggables<Cr>",      "Debuggables" },
-    v = { "<cmd>RustViewCrateGraph<Cr>",   "View Crate Graph" },
-    R = {
-      "<cmd>lua require('rust-tools/workspace_refresh')._reload_workspace_from_cargo_toml()<Cr>",
-      "Reload Workspace",
-    },
-    o = { "<cmd>RustOpenExternalDocs<Cr>", "Open External Docs" },
-  },
-}
 
-local opts = require('traap.core.constants').normal_opts
-which_key.register(mappings, opts)
+keymap('n', '<leader>CD', '<cmd>RustOpenExternalDocs<cr>')
+keymap('n', '<leader>CR', "<cmd>lua require('rust-tools/workspace_refresh')._reload_workspace_from_cargo_toml()<cr>")
+
+keymap('n', '<leader>Cc', '<cmd>RustOpenCargo<cr>')
+keymap('n', '<leader>Cd', '<cmd>RustDebuggables<cr>')
+keymap('n', '<leader>Cm', '<cmd>RustExpandMacro<cr>')
+keymap('n', '<leader>Co', '<cmd>RustOpenExternalDocs<cr>')
+keymap('n', '<leader>Cp', '<cmd>RustParentModule<cr>')
+keymap('n', '<leader>Cr', '<cmd>RustRunnables<cr>')
+keymap('n', '<leader>Ct', '<cmd>lua _CARGO_TEST()<cr>')
+keymap('n', '<leader>Cv', '<cmd>RustViewCrateGraph<cr>')
