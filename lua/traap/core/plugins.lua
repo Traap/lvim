@@ -22,21 +22,6 @@ lvim.plugins = {
   'moll/vim-bbye',
   'nvim-telescope/telescope-media-files.nvim',
   'olexsmir/gopher.nvim',
-  -- 'renerocksai/calendar-vim',
-  -- {
-  --   'saecki/crates.nvim',
-  --   tag = 'v0.3.0',
-  --   requires = { 'nvim-lua/plenary.nvim' },
-  --   config = function()
-  --     require('crates').setup {
-  --       null_ls = {
-  --         enabled = true,
-  --         name = 'crates.nvim',
-  --       },
-  --     }
-  --   end,
-  -- },
-  -- 'renerocksai/telekasten.nvim',
   'tpope/gem-browse',
   'tpope/vim-bundler',
   'tpope/vim-characterize',
@@ -60,7 +45,6 @@ lvim.plugins = {
   'RRethy/nvim-base16',
   'ThePrimeagen/harpoon',
   'Traap/vim-bundle-abbreviate',
-  'Traap/vim-bundle-autocmd',
   'Traap/vim-bundle-fzf',
   'Traap/vim-bundle-plantuml',
   'Traap/vim-bundle-rainbow',
