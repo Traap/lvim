@@ -50,7 +50,7 @@ lvim.plugins = {
   'Traap/vim-bundle-plantuml',
   'Traap/vim-bundle-tmux-runner',
   'Traap/vim-bundle-vimtex',
-  'Traap/vim-bundle-vimwiki',
+  'Traap/vim-bundle-wiki.vim',
   -- dap
   'jose-elias-alvarez/typescript.nvim',
   'mfussenegger/nvim-dap-python',
