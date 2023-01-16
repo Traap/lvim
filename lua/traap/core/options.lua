@@ -19,8 +19,8 @@ lvim.builtin.project.active = true
 lvim.builtin.tabnine = { active = false }
 lvim.builtin.terminal.active = false
 lvim.builtin.treesitter.highlight.enable = true
-
 lvim.builtin.which_key.active = false
+
 lvim.builtin.cmp.cmdline.enable =  true
 lvim.builtin.cmp.window.documentation = true
 lvim.builtin.cmp.window.completion = {
