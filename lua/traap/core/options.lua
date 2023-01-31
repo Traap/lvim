@@ -45,7 +45,7 @@ local options = {
   cursorline = false,
   expandtab = true,
   fillchars = "fold: ",
-  foldlevel = 20,
+  foldlevel = 0,
   foldmethod = "marker",
   lazyredraw = true,
   listchars = { eol = '↲', tab = '▸ ', trail = '·' },
