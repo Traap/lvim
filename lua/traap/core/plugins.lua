@@ -42,7 +42,7 @@ lvim.plugins = {
   'tweekmonster/startuptime.vim',
   'vim-utils/vim-most-minimal-folds',
   'xiyaowong/nvim-transparent',
-  'ChristianChiarulli/nvim-ts-rainbow',
+--  'ChristianChiarulli/nvim-ts-rainbow',
   'RRethy/nvim-base16',
   'ThePrimeagen/harpoon',
   'Traap/vim-bundle-abbreviate',
